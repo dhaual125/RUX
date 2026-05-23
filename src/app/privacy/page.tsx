@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
