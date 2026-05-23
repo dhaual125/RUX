@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const productLinks = [
@@ -140,16 +142,20 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 text-[0.75rem] font-medium"
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 text-[0.75rem] font-medium"
           style={{ borderTop: "1px solid var(--border-subtle)", color: "var(--subtle-text)" }}
         >
-          <span>© 2026 RUX. A Navchetna Technologies product. All rights reserved.</span>
+          <span style={{ color: "var(--muted-text)" }}>© 2026 RUX. A Navchetna Technologies product. All rights reserved.</span>
           <div className="flex flex-wrap items-center gap-6">
-            {legalLinks.map((l) => (
-              <Link key={l.label} href={l.href} className="transition-colors hover:opacity-100">
-                {l.label}
-              </Link>
-            ))}
+            <Link
+              href="/privacy"
+              className="transition-colors duration-200"
+              style={{ color: "var(--muted-text)" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "var(--heading-color)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--muted-text)")}
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>
