@@ -18,6 +18,7 @@ const resourceLinks = [
 const companyLinks = [
   { href: "/about", label: "About" },
   { href: "mailto:sales@rux.dev", label: "Contact Sales", external: true },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 const legalLinks = [
@@ -141,25 +142,37 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Centered System Status */}
+        <div className="flex justify-center mb-6">
+          <Link
+            href="#"
+            className="text-[10px] font-semibold uppercase tracking-[0.14em] transition-colors duration-200 hover:text-[var(--heading-color)]"
+            style={{ color: "var(--muted-text)" }}
+          >
+            System Status
+          </Link>
+        </div>
+
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 text-[0.75rem] font-medium"
+          className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 text-[10px] tracking-wider"
           style={{ borderTop: "1px solid var(--border-subtle)" }}
         >
-          {/* Left: copyright + privacy */}
-          <div className="flex flex-wrap items-center gap-4">
-            <span style={{ color: "var(--muted-text)" }}>© 2026 RUX. A Navchetna Technologies product. All rights reserved.</span>
-            <span style={{ color: "var(--border-default)" }}>·</span>
-            <Link
-              href="/privacy"
-              className="transition-colors duration-200 hover:text-white"
+          {/* Left: copyright */}
+          <span style={{ color: "var(--muted-text)" }}>
+            © 2026 Navchetna Technologies. All rights reserved.
+          </span>
+
+          {/* Right: company + theme toggle */}
+          <div className="flex flex-wrap items-center gap-6">
+            <span
+              className="font-semibold"
               style={{ color: "var(--muted-text)" }}
             >
-              Privacy Policy
-            </Link>
+              NINELLMS SOLUTIONS LLP
+            </span>
+            <ThemeToggle />
           </div>
-          {/* Right: theme toggle */}
-          <ThemeToggle />
         </div>
       </div>
     </footer>
