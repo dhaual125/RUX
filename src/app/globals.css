@@ -30,6 +30,7 @@
 }
 
 :root {
+  /* ── Light mode ── */
   --page-bg: #ffffff;
   --page-text: #0A0A0A;
   --card-bg: #FFFFFF;
@@ -53,36 +54,38 @@
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── Premium black dark mode ── */
 .dark {
-  --page-bg: #121212;
-  --page-text: #EBEBEB;
-  --card-bg: #1A1A1A;
-  --section-bg: #161616;
-  --nav-bg: rgba(18,18,18,0.88);
+  --page-bg: #080808;
+  --page-text: #E8E8E8;
+  --card-bg: #111111;
+  --section-bg: #0e0e0e;
+  --nav-bg: rgba(8,8,8,0.85);
   --nav-border: rgba(255,255,255,0.07);
-  --heading-color: #F0F0F0;
-  --muted-text: rgba(255,255,255,0.50);
-  --subtle-text: rgba(255,255,255,0.34);
-  --border-subtle: rgba(255,255,255,0.08);
-  --border-default: rgba(255,255,255,0.12);
-  --border-strong: rgba(255,255,255,0.18);
-  --soft-gradient: linear-gradient(145deg, #1a1917 0%, #1c1f26 50%, #1f1a18 100%);
+  --heading-color: #F2F2F2;
+  --muted-text: rgba(255,255,255,0.45);
+  --subtle-text: rgba(255,255,255,0.28);
+  --border-subtle: rgba(255,255,255,0.07);
+  --border-default: rgba(255,255,255,0.10);
+  --border-strong: rgba(255,255,255,0.16);
+  --soft-gradient: linear-gradient(145deg, #111111 0%, #0f1117 50%, #110f0e 100%);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.dark body { background-color: #121212; }
+.dark body { background-color: #080808; }
 
 .dark .grid-overlay {
   background-image:
-    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
 }
 
 .dark .section-divider {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.20) 0.85px, transparent 0.85px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.18) 0.85px, transparent 0.85px) !important;
 }
 
 .dark .section-sep {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.12) 0.85px, transparent 0.85px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.10) 0.85px, transparent 0.85px) !important;
 }
 
 *, *::before, *::after {
@@ -141,8 +144,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,0,0,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);

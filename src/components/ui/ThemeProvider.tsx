@@ -10,10 +10,10 @@ const ThemeContext = createContext<{
 }>({ theme: "system", setTheme: () => {} });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("system");
+  const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
-    const stored = (localStorage.getItem("theme") as Theme) || "system";
+    const stored = (localStorage.getItem("rux-theme") as Theme) || "dark";
     setThemeState(stored);
   }, []);
 
@@ -30,7 +30,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme]);
 
   const setTheme = (t: Theme) => {
-    localStorage.setItem("theme", t);
+    localStorage.setItem("rux-theme", t);
     setThemeState(t);
   };
 

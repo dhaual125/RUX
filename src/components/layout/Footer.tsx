@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const productLinks = [
   { href: "/", label: "RUX" },
@@ -143,20 +144,22 @@ export function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 text-[0.75rem] font-medium"
-          style={{ borderTop: "1px solid var(--border-subtle)", color: "var(--subtle-text)" }}
+          style={{ borderTop: "1px solid var(--border-subtle)" }}
         >
-          <span style={{ color: "var(--muted-text)" }}>© 2026 RUX. A Navchetna Technologies product. All rights reserved.</span>
-          <div className="flex flex-wrap items-center gap-6">
+          {/* Left: copyright + privacy */}
+          <div className="flex flex-wrap items-center gap-4">
+            <span style={{ color: "var(--muted-text)" }}>© 2026 RUX. A Navchetna Technologies product. All rights reserved.</span>
+            <span style={{ color: "var(--border-default)" }}>·</span>
             <Link
               href="/privacy"
-              className="transition-colors duration-200"
+              className="transition-colors duration-200 hover:text-white"
               style={{ color: "var(--muted-text)" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "var(--heading-color)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "var(--muted-text)")}
             >
               Privacy Policy
             </Link>
           </div>
+          {/* Right: theme toggle */}
+          <ThemeToggle />
         </div>
       </div>
     </footer>
