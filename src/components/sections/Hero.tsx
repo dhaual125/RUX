@@ -94,7 +94,9 @@ export function Hero() {
               fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
               fontWeight: 400,
-              color: "rgba(255,255,255,0.80)",
+              background: "linear-gradient(135deg, #FFEBD7 0%, #E5A96F 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             One engine.
