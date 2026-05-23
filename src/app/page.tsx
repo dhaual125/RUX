@@ -70,7 +70,7 @@ export default function RuxPage() {
         className="relative pt-28 sm:pt-32 md:pt-36 pb-10"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in srgb, var(--page-bg) 92%, #C68B59 8%) 0%, color-mix(in srgb, var(--page-bg) 95%, var(--color-brand) 5%) 40%, var(--page-bg) 100%)",
+            "linear-gradient(180deg, color-mix(in srgb, var(--page-bg) 92%, #486985 8%) 0%, color-mix(in srgb, var(--page-bg) 95%, #7d4835 5%) 40%, var(--page-bg) 100%)",
         }}
       >
         <div className="grid-overlay" />
@@ -100,7 +100,7 @@ export default function RuxPage() {
                     style={{
                       fontFamily: "'Instrument Serif', serif",
                       fontStyle: "italic",
-                      background: "linear-gradient(135deg, #E5A96F 0%, var(--color-brand) 100%)",
+                      background: "linear-gradient(135deg, #C68B59 0%, #545B8C 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                     }}
@@ -283,7 +283,7 @@ export default function RuxPage() {
                     style={{
                       fontFamily: "'Instrument Serif', serif",
                       fontStyle: "italic",
-                      background: "linear-gradient(135deg, #E5A96F 0%, var(--color-brand) 100%)",
+                      background: "linear-gradient(135deg, #d4845a 0%, #8b6bc7 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                     }}
