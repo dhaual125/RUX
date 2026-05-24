@@ -78,317 +78,311 @@ export default function ContactSalesPage() {
   };
 
   return (
-    <div className="w-full h-full min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-white dark:bg-[#0c0c0c]">
-      {/* ── Left Side: Pure Watercolor Varanasi Ghats Temple Artwork ── */}
-      {/* ── Left Side: Edge-to-Edge Premium RUX Visual ── */}
-      <div className="relative hidden lg:block overflow-hidden h-full min-h-screen bg-black">
+    <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-white dark:bg-[#0c0c0c]">
+      {/* Left image — hidden on mobile */}
+      <div className="relative hidden lg:flex items-center justify-center overflow-hidden h-full min-h-screen bg-[#0a0a0a]">
         <img
           src="/frontimage.png"
           alt="Contact Sales RUX background visual"
-          className="absolute inset-0 w-full h-full object-cover"
           style={{
-            objectPosition: "50% 50%",
-          }}
-        />
-        {/* Sleek edge shadow overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%)",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
           }}
         />
       </div>
 
       {/* ── Right Side: Contact Sales Form ── */}
-      <div className="flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 relative bg-white dark:bg-[#0c0c0c] transition-colors duration-300 overflow-y-auto h-screen">
+      <div className="flex flex-col h-screen min-h-screen overflow-y-auto bg-white dark:bg-[#0c0c0c] p-6 sm:p-10 md:p-12 lg:py-16 lg:pl-12 lg:pr-24 relative">
         
-        {/* Top Back Link */}
-        <div className="w-full flex justify-between items-center mb-8 shrink-0">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-[13px] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
-          >
-            <span className="text-[15px]">&larr;</span> Back
-          </Link>
-        </div>
-
-        {/* Success State */}
-        {isSubmitted ? (
-          <div className="my-auto max-w-xl w-full animate-fade-in flex flex-col items-start gap-4">
-            <div className="size-12 rounded-full flex items-center justify-center animate-pulse" style={{ background: "rgba(125,72,53,0.1)", border: "1px solid rgba(125,72,53,0.2)" }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <h1
-              className="text-2xl font-semibold tracking-tight"
-              style={{
-                fontFamily: "var(--font-waldenburg)",
-                color: "var(--heading-color)",
-                lineHeight: 1.15,
-              }}
-            >
-              Request Sent Successfully!
-            </h1>
-            <p className="text-[14px]" style={{ color: "var(--muted-text)", lineHeight: 1.6 }}>
-              Thank you for reaching out, <strong className="text-[var(--heading-color)]">{formData.firstName}</strong>. We have registered your institutional request. Our partnership team will contact you at <strong className="text-[var(--heading-color)]">{formData.workEmail}</strong> shortly to discuss requirements.
-            </p>
+        {/* Unified Wrapper — Left-aligned close to the image on desktop */}
+        <div className="max-w-xl w-full lg:ml-0 mx-auto my-auto flex flex-col justify-center py-8">
+          {/* Top Back Link */}
+          <div className="mb-8">
             <Link
               href="/"
-              className="mt-4 inline-flex items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors duration-200"
-              style={{
-                height: "2.75rem",
-                background: "var(--heading-color)",
-                color: "var(--page-bg)",
-              }}
+              className="inline-flex items-center gap-1.5 text-[13px] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
             >
-              Return Home
+              <span className="text-[15px]">←</span> Back
             </Link>
           </div>
-        ) : (
-          /* Contact Sales Form */
-          <div className="my-auto max-w-xl w-full pr-1">
-            <h1
-              className="mb-1 text-2xl font-bold tracking-tight text-black dark:text-white"
-              style={{
-                fontFamily: "var(--font-waldenburg)",
-                lineHeight: 1.15,
-              }}
-            >
-              Contact Sales
-            </h1>
-            <p className="mb-8 text-[13px] leading-relaxed text-gray-500 dark:text-gray-400">
-              Fill in the details below and we'll reach out shortly.
-            </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
-              {/* First Name & Last Name (Side-by-Side) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
-                    First name <span className="text-[#e11d48] font-bold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    placeholder="eg. John"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
-                    style={{
-                      borderColor: errors.firstName ? "#e11d48" : undefined,
-                    }}
-                  />
-                  {errors.firstName && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.firstName}</span>}
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
-                    Last name <span className="text-[#e11d48] font-bold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    placeholder="eg. Doe"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
-                    style={{
-                      borderColor: errors.lastName ? "#e11d48" : undefined,
-                    }}
-                  />
-                  {errors.lastName && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.lastName}</span>}
-                </div>
+          {/* Success State */}
+          {isSubmitted ? (
+            <div className="animate-fade-in flex flex-col items-start gap-4">
+              <div className="size-12 rounded-full flex items-center justify-center animate-pulse" style={{ background: "rgba(125,72,53,0.1)", border: "1px solid rgba(125,72,53,0.2)" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
               </div>
+              <h1
+                className="text-2xl font-semibold tracking-tight"
+                style={{
+                  fontFamily: "var(--font-waldenburg)",
+                  color: "var(--heading-color)",
+                  lineHeight: 1.15,
+                }}
+              >
+                Request Sent Successfully!
+              </h1>
+              <p className="text-[14px]" style={{ color: "var(--muted-text)", lineHeight: 1.6 }}>
+                Thank you for reaching out, <strong className="text-[var(--heading-color)]">{formData.firstName}</strong>. We have registered your institutional request. Our partnership team will contact you at <strong className="text-[var(--heading-color)]">{formData.workEmail}</strong> shortly to discuss requirements.
+              </p>
+              <Link
+                href="/"
+                className="mt-4 inline-flex items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors duration-200"
+                style={{
+                  height: "2.75rem",
+                  background: "var(--heading-color)",
+                  color: "var(--page-bg)",
+                }}
+              >
+                Return Home
+              </Link>
+            </div>
+          ) : (
+            /* Contact Sales Form */
+            <div className="w-full pr-1">
+              <h1
+                className="mb-1 text-2xl font-bold tracking-tight text-black dark:text-white"
+                style={{
+                  fontFamily: "var(--font-waldenburg)",
+                  lineHeight: 1.15,
+                }}
+              >
+                Contact Sales
+              </h1>
+              <p className="mb-8 text-[13px] leading-relaxed text-gray-500 dark:text-gray-400">
+                Fill in the details below and we&apos;ll reach out shortly.
+              </p>
 
-              {/* Work Email */}
-              <div className="flex flex-col gap-1">
-                <label className="text-[13px] font-semibold text-black dark:text-white">
-                  Work email <span className="text-[#e11d48] font-bold">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="workEmail"
-                  value={formData.workEmail}
-                  onChange={handleChange}
-                  placeholder="eg. john.doe@institute.edu"
-                  className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
-                  style={{
-                    borderColor: errors.workEmail ? "#e11d48" : undefined,
-                  }}
-                />
-                {errors.workEmail && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.workEmail}</span>}
-              </div>
-
-              {/* Mobile Phone Number */}
-              <div className="flex flex-col gap-1">
-                <label className="text-[13px] font-semibold text-black dark:text-white">
-                  Mobile phone number <span className="text-[#e11d48] font-bold">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  placeholder="eg. 9129139145"
-                  className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
-                  style={{
-                    borderColor: errors.phoneNumber ? "#e11d48" : undefined,
-                  }}
-                />
-                {errors.phoneNumber && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.phoneNumber}</span>}
-              </div>
-
-              {/* Job Title & Institute Name (Side-by-Side) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
-                    Job title <span className="text-[#e11d48] font-bold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="jobTitle"
-                    value={formData.jobTitle}
-                    onChange={handleChange}
-                    placeholder="eg. Principal"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
-                    style={{
-                      borderColor: errors.jobTitle ? "#e11d48" : undefined,
-                    }}
-                  />
-                  {errors.jobTitle && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.jobTitle}</span>}
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
-                    Institute name <span className="text-[#e11d48] font-bold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="instituteName"
-                    value={formData.instituteName}
-                    onChange={handleChange}
-                    placeholder="eg. Delhi Public School"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
-                    style={{
-                      borderColor: errors.instituteName ? "#e11d48" : undefined,
-                    }}
-                  />
-                  {errors.instituteName && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.instituteName}</span>}
-                </div>
-              </div>
-
-              {/* Institute Type & Number of Students (Side-by-Side Select) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
-                    Institute type <span className="text-[#e11d48] font-bold">*</span>
-                  </label>
-                  <div className="relative">
-                    <select
-                      name="instituteType"
-                      value={formData.instituteType}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
+                {/* First Name & Last Name (Side-by-Side) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                      First name <span className="text-[#e11d48] font-bold">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                      placeholder="eg. John"
+                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
                       style={{
-                        borderColor: errors.instituteType ? "#e11d48" : undefined,
+                        borderColor: errors.firstName ? "#e11d48" : undefined,
                       }}
-                    >
-                      <option value="" className="text-[#9ca3af] dark:bg-[#121212]">Please select</option>
-                      {instituteTypes.map((opt) => (
-                        <option key={opt} value={opt} className="text-black dark:text-white dark:bg-[#121212]">
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="absolute right-0 bottom-2.5 pointer-events-none flex items-center justify-center">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-400">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                    </div>
+                    />
+                    {errors.firstName && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.firstName}</span>}
                   </div>
-                  {errors.instituteType && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.instituteType}</span>}
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                      Last name <span className="text-[#e11d48] font-bold">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="eg. Doe"
+                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
+                      style={{
+                        borderColor: errors.lastName ? "#e11d48" : undefined,
+                      }}
+                    />
+                    {errors.lastName && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.lastName}</span>}
+                  </div>
                 </div>
 
+                {/* Work Email */}
                 <div className="flex flex-col gap-1">
                   <label className="text-[13px] font-semibold text-black dark:text-white">
-                    Number of students
+                    Work email <span className="text-[#e11d48] font-bold">*</span>
                   </label>
-                  <div className="relative">
-                    <select
-                      name="studentCount"
-                      value={formData.studentCount}
+                  <input
+                    type="email"
+                    name="workEmail"
+                    value={formData.workEmail}
+                    onChange={handleChange}
+                    placeholder="eg. john.doe@institute.edu"
+                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
+                    style={{
+                      borderColor: errors.workEmail ? "#e11d48" : undefined,
+                    }}
+                  />
+                  {errors.workEmail && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.workEmail}</span>}
+                </div>
+
+                {/* Mobile Phone Number */}
+                <div className="flex flex-col gap-1">
+                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                    Mobile phone number <span className="text-[#e11d48] font-bold">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="eg. 9129139145"
+                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
+                    style={{
+                      borderColor: errors.phoneNumber ? "#e11d48" : undefined,
+                    }}
+                  />
+                  {errors.phoneNumber && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.phoneNumber}</span>}
+                </div>
+
+                {/* Job Title & Institute Name (Side-by-Side) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                      Job title <span className="text-[#e11d48] font-bold">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="jobTitle"
+                      value={formData.jobTitle}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
-                    >
-                      <option value="" className="text-[#9ca3af] dark:bg-[#121212]">Please select</option>
-                      {studentRanges.map((opt) => (
-                        <option key={opt} value={opt} className="text-black dark:text-white dark:bg-[#121212]">
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="absolute right-0 bottom-2.5 pointer-events-none flex items-center justify-center">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-400">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
+                      placeholder="eg. Principal"
+                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
+                      style={{
+                        borderColor: errors.jobTitle ? "#e11d48" : undefined,
+                      }}
+                    />
+                    {errors.jobTitle && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.jobTitle}</span>}
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                      Institute name <span className="text-[#e11d48] font-bold">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="instituteName"
+                      value={formData.instituteName}
+                      onChange={handleChange}
+                      placeholder="eg. Delhi Public School"
+                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200"
+                      style={{
+                        borderColor: errors.instituteName ? "#e11d48" : undefined,
+                      }}
+                    />
+                    {errors.instituteName && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.instituteName}</span>}
+                  </div>
+                </div>
+
+                {/* Institute Type & Number of Students (Side-by-Side Select) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                      Institute type <span className="text-[#e11d48] font-bold">*</span>
+                    </label>
+                    <div className="relative">
+                      <select
+                        name="instituteType"
+                        value={formData.instituteType}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                        style={{
+                          borderColor: errors.instituteType ? "#e11d48" : undefined,
+                        }}
+                      >
+                        <option value="" className="text-[#9ca3af] dark:bg-[#121212]">Please select</option>
+                        {instituteTypes.map((opt) => (
+                          <option key={opt} value={opt} className="text-black dark:text-white dark:bg-[#121212]">
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute right-0 bottom-2.5 pointer-events-none flex items-center justify-center">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-400">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    {errors.instituteType && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.instituteType}</span>}
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                      Number of students
+                    </label>
+                    <div className="relative">
+                      <select
+                        name="studentCount"
+                        value={formData.studentCount}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                      >
+                        <option value="" className="text-[#9ca3af] dark:bg-[#121212]">Please select</option>
+                        {studentRanges.map((opt) => (
+                          <option key={opt} value={opt} className="text-black dark:text-white dark:bg-[#121212]">
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute right-0 bottom-2.5 pointer-events-none flex items-center justify-center">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-400">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Requirements & Goals (Textarea) */}
-              <div className="flex flex-col gap-1">
-                <label className="text-[13px] font-semibold text-black dark:text-white">
-                  Requirements & goals
-                </label>
-                <textarea
-                  name="requirements"
-                  value={formData.requirements}
-                  onChange={handleChange}
-                  placeholder="Tell us about your needs..."
-                  rows={2}
-                  className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 resize-none"
-                />
-              </div>
+                {/* Requirements & Goals (Textarea) */}
+                <div className="flex flex-col gap-1">
+                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                    Requirements & goals
+                  </label>
+                  <textarea
+                    name="requirements"
+                    value={formData.requirements}
+                    onChange={handleChange}
+                    placeholder="Tell us about your needs..."
+                    rows={2}
+                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 resize-none"
+                  />
+                </div>
 
-              {/* Send Request Button */}
-              <div className="mt-4 flex items-center justify-start">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="px-8 py-2.5 rounded-full text-[14px] font-semibold inline-flex items-center gap-2.5 transition-all duration-200 active:scale-[0.98] cursor-pointer hover:bg-black/90 dark:hover:bg-white/90"
-                  style={{
-                    background: isSubmitting ? "#e5e7eb" : "black",
-                    color: "white",
-                    cursor: isSubmitting ? "not-allowed" : "pointer",
-                  }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Request
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block transition-transform duration-200 hover:translate-x-0.5">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </div>
-            </form>
-          </div>
-        )}
-        
-        {/* Spacer for structure */}
-        <div className="shrink-0 h-4" />
+                {/* Send Request Button */}
+                <div className="mt-4 flex items-center justify-start">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="px-8 py-2.5 rounded-full text-[14px] font-semibold inline-flex items-center gap-2.5 transition-all duration-200 active:scale-[0.98] cursor-pointer hover:bg-black/90 dark:hover:bg-white/90"
+                    style={{
+                      background: isSubmitting ? "#e5e7eb" : "black",
+                      color: "white",
+                      cursor: isSubmitting ? "not-allowed" : "pointer",
+                    }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Request
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block transition-transform duration-200 hover:translate-x-0.5">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

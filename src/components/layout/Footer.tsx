@@ -130,7 +130,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 text-[10px] tracking-wider"
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 text-[10px] tracking-wider"
           style={{ borderTop: "1px solid var(--border-subtle)" }}
         >
           {/* Left: copyright */}

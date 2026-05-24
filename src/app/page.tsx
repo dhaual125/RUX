@@ -125,7 +125,7 @@ export default function RuxPage() {
 
       {/* ── Infinite Logo Ticker Section ── */}
       <section className="relative py-6 bg-transparent overflow-hidden select-none">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+        <div className="max-w-6xl lg:max-w-[90vw] mx-auto px-4 text-center">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400/60 dark:text-gray-500/60 mb-6">
             TRUSTED BY TEAMS BUILDING WITH INTENT
           </p>
@@ -177,7 +177,7 @@ export default function RuxPage() {
       >
         <div className="section-container">
           {/* Header + Filter */}
-          <div className="mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p
                 className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em]"
@@ -189,9 +189,9 @@ export default function RuxPage() {
             </div>
 
             {/* Segmented filter */}
-            <div className="flex overflow-x-auto pb-1">
+            <div className="w-full sm:w-auto overflow-x-auto pb-1 -mx-1 px-1">
               <div
-                className="relative flex rounded-full p-1 shrink-0"
+                className="relative flex rounded-full p-1 w-max"
                 style={{
                   background: "var(--border-subtle)",
                   boxShadow: "inset 0 0 0 1px var(--border-subtle)",
