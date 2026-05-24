@@ -157,7 +157,7 @@ export function Hero() {
         >
           Powered by
         </span>
-        {["Rust", "Ollama", "OpenAI", "Anthropic", "Gemini", "Groq"].map((name) => (
+        {["Osmium AI", "Ollama", "OpenAI", "Anthropic", "Gemini", "Groq", "OpenRouter", "& more"].map((name) => (
           <span
             key={name}
             style={{
