@@ -71,7 +71,8 @@ export default function GetStartedPage() {
         <img
           src="/frontimage.png"
           alt="Get Started RUX background visual"
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center top" }}
         />
       </div>
 
@@ -151,7 +152,7 @@ export default function GetStartedPage() {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="eg. Rahul Sharma"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.fullName ? "#e11d48" : undefined,
                     }}
@@ -170,7 +171,7 @@ export default function GetStartedPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="eg. rahul@gmail.com"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.email ? "#e11d48" : undefined,
                     }}
@@ -184,7 +185,7 @@ export default function GetStartedPage() {
                     WhatsApp number <span className="text-[#e11d48] font-bold">*</span>
                   </label>
                   <div
-                    className="relative flex items-center w-full border-b border-[#e5e7eb] dark:border-[#262626] py-1.5 px-0 transition-colors duration-200 focus-within:border-black dark:focus-within:border-white"
+                    className="relative flex items-center w-full border-b border-gray-300 dark:border-zinc-800 py-1.5 px-0 transition-colors duration-200 focus-within:border-black dark:focus-within:border-white"
                     style={{
                       borderColor: errors.whatsappNumber ? "#e11d48" : undefined,
                     }}
@@ -197,7 +198,7 @@ export default function GetStartedPage() {
                         className="text-[14px] bg-transparent border-none outline-none appearance-none cursor-pointer pr-4 text-black dark:text-white"
                       >
                         {countryCodes.map((item) => (
-                          <option key={item.code} value={item.code} className="dark:bg-[#121212] text-black dark:text-white">
+                          <option key={item.code} value={item.code} className="bg-white dark:bg-[#121212] text-black dark:text-white">
                             {item.label}
                           </option>
                         ))}
@@ -208,14 +209,14 @@ export default function GetStartedPage() {
                         </svg>
                       </div>
                     </div>
-                    <div className="h-4 w-px bg-[#e5e7eb] dark:bg-[#262626] mx-2" />
+                    <div className="h-4 w-px bg-gray-300 dark:bg-zinc-800 mx-2" />
                     <input
                       type="tel"
                       name="whatsappNumber"
                       value={formData.whatsappNumber}
                       onChange={handleChange}
                       placeholder="9876543210"
-                      className="flex-1 bg-transparent border-none outline-none py-0 px-0 text-[14px] placeholder-[#9ca3af] text-black dark:text-white"
+                      className="flex-1 bg-transparent border-none outline-none py-0 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 text-black dark:text-white"
                     />
                   </div>
                   {errors.whatsappNumber && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.whatsappNumber}</span>}

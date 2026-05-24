@@ -84,12 +84,8 @@ export default function ContactSalesPage() {
         <img
           src="/frontimage.png"
           alt="Contact Sales RUX background visual"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center top",
-          }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center top" }}
         />
       </div>
 
@@ -170,7 +166,7 @@ export default function ContactSalesPage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="eg. John"
-                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.firstName ? "#e11d48" : undefined,
                       }}
@@ -188,7 +184,7 @@ export default function ContactSalesPage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="eg. Doe"
-                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.lastName ? "#e11d48" : undefined,
                       }}
@@ -208,7 +204,7 @@ export default function ContactSalesPage() {
                     value={formData.workEmail}
                     onChange={handleChange}
                     placeholder="eg. john.doe@institute.edu"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.workEmail ? "#e11d48" : undefined,
                     }}
@@ -227,7 +223,7 @@ export default function ContactSalesPage() {
                     value={formData.phoneNumber}
                     onChange={handleChange}
                     placeholder="eg. 9129139145"
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.phoneNumber ? "#e11d48" : undefined,
                     }}
@@ -247,7 +243,7 @@ export default function ContactSalesPage() {
                       value={formData.jobTitle}
                       onChange={handleChange}
                       placeholder="eg. Principal"
-                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.jobTitle ? "#e11d48" : undefined,
                       }}
@@ -265,7 +261,7 @@ export default function ContactSalesPage() {
                       value={formData.instituteName}
                       onChange={handleChange}
                       placeholder="eg. Delhi Public School"
-                      className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.instituteName ? "#e11d48" : undefined,
                       }}
@@ -285,14 +281,14 @@ export default function ContactSalesPage() {
                         name="instituteType"
                         value={formData.instituteType}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
                         style={{
                           borderColor: errors.instituteType ? "#e11d48" : undefined,
                         }}
                       >
-                        <option value="" className="text-[#9ca3af] dark:bg-[#121212]">Please select</option>
+                        <option value="" className="text-gray-400 dark:text-zinc-500 bg-white dark:bg-[#121212]">Please select</option>
                         {instituteTypes.map((opt) => (
-                          <option key={opt} value={opt} className="text-black dark:text-white dark:bg-[#121212]">
+                          <option key={opt} value={opt} className="bg-white dark:bg-[#121212] text-black dark:text-white">
                             {opt}
                           </option>
                         ))}
@@ -315,11 +311,11 @@ export default function ContactSalesPage() {
                         name="studentCount"
                         value={formData.studentCount}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
                       >
-                        <option value="" className="text-[#9ca3af] dark:bg-[#121212]">Please select</option>
+                        <option value="" className="text-gray-400 dark:text-zinc-500 bg-white dark:bg-[#121212]">Please select</option>
                         {studentRanges.map((opt) => (
-                          <option key={opt} value={opt} className="text-black dark:text-white dark:bg-[#121212]">
+                          <option key={opt} value={opt} className="bg-white dark:bg-[#121212] text-black dark:text-white">
                             {opt}
                           </option>
                         ))}
@@ -344,7 +340,7 @@ export default function ContactSalesPage() {
                     onChange={handleChange}
                     placeholder="Tell us about your needs..."
                     rows={2}
-                    className="w-full bg-transparent border-0 border-b border-[#e5e7eb] dark:border-[#262626] rounded-none py-1.5 px-0 text-[14px] placeholder-[#9ca3af] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 resize-none text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 resize-none text-black dark:text-white"
                   />
                 </div>
 

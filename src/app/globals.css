@@ -195,3 +195,28 @@ img { max-width: 100%; height: auto; }
 .animate-fade-in {
   animation: fadeIn 0.4s var(--ease-spring) forwards;
 }
+
+/* Custom Autofill Styles for complete theme consistency */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--page-text) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--page-bg) inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  caret-color: var(--page-text) !important;
+}
+
+/* Explicit style overrides for forms to prevent browser default text coloring */
+input, select, textarea {
+  color: var(--page-text) !important;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--muted-text) !important;
+  opacity: 0.85;
+}
