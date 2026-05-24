@@ -96,7 +96,7 @@
 body {
   background-color: var(--page-bg);
   color: var(--page-text);
-  font-family: system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.62;
 }

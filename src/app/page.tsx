@@ -81,12 +81,12 @@ export default function RuxPage() {
                   className="mb-4 text-[10px] font-semibold uppercase tracking-[0.16em]"
                   style={{ color: "var(--subtle-text)" }}
                 >
-                  RUX — Agentic Development Environment
+                  RUX
                 </p>
                 <h1
                   className="text-balance"
                   style={{
-                    fontFamily: "var(--font-waldenburg)",
+                    fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
                     fontSize: "clamp(2rem, 4vw, 3.15rem)",
                     fontWeight: 500,
                     letterSpacing: "-0.03em",
@@ -229,27 +229,34 @@ export default function RuxPage() {
             </div>
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-3"
-            style={{ border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)", overflow: "hidden" }}
-          >
+          {/* Standalone rich cards with gap spacing */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {filtered.map((f, i) => (
               <ScrollReveal key={f.id} delay={i * 30}>
                 <div
-                  className="group flex flex-col gap-3 p-6 h-full transition-colors duration-200"
+                  className="group flex flex-col gap-4 p-6 h-full rounded-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
                   style={{
-                    background: "var(--page-bg)",
-                    borderRight: "1px solid var(--border-subtle)",
-                    borderBottom: "1px solid var(--border-subtle)",
+                    background: "var(--card-bg)",
+                    border: "1px solid var(--border-subtle)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.015)",
                   }}
                 >
-                  <div className="flex items-start justify-between gap-2">
+                  {/* Subtle top hover glow border in brand color */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-brand)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                  
+                  {/* Radial spotlight glow on hover */}
+                  <div 
+                    className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,var(--color-brand),transparent_70%)]"
+                  />
+
+                  <div className="flex items-start justify-between gap-3 relative z-10">
                     <h3
+                      className="font-medium tracking-tight text-balance group-hover:text-[var(--color-brand)] transition-colors duration-200"
                       style={{
-                        fontFamily: "var(--font-waldenburg)",
-                        fontSize: "1rem",
-                        fontWeight: 500,
-                        letterSpacing: "-0.015em",
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: "15px",
                         color: "var(--heading-color)",
                         lineHeight: 1.3,
                       }}
@@ -257,7 +264,7 @@ export default function RuxPage() {
                       {f.name}
                     </h3>
                     <span
-                      className="shrink-0 rounded-full px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider"
+                      className="shrink-0 rounded-full px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider transition-colors duration-200"
                       style={{
                         background: "rgba(125,72,53,0.07)",
                         color: "var(--color-brand)",
@@ -267,21 +274,36 @@ export default function RuxPage() {
                       {f.tag}
                     </span>
                   </div>
+
                   <p
+                    className="relative z-10 text-[13px] leading-relaxed"
                     style={{
                       color: "var(--muted-text)",
-                      fontSize: "0.875rem",
-                      lineHeight: 1.65,
                     }}
                   >
                     {f.desc}
                   </p>
-                  <p
-                    className="mt-auto text-[10px] font-semibold uppercase tracking-widest"
-                    style={{ color: "var(--subtle-text)" }}
-                  >
-                    {f.category}
-                  </p>
+
+                  <div className="mt-auto pt-3 flex items-center justify-between border-t border-[var(--border-subtle)] relative z-10">
+                    <span
+                      className="text-[9px] font-bold uppercase tracking-widest"
+                      style={{ color: "var(--subtle-text)" }}
+                    >
+                      {f.category}
+                    </span>
+                    <svg 
+                      width="12" 
+                      height="12" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2.5" 
+                      className="text-gray-400 group-hover:text-[var(--color-brand)] group-hover:translate-x-0.5 transition-all duration-200"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}

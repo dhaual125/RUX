@@ -46,42 +46,16 @@ export function Hero() {
         className="relative w-full px-5 sm:px-10 md:px-16 lg:px-24 flex flex-col items-center text-center mx-auto"
         style={{ zIndex: 3, maxWidth: "840px" }}
       >
-        {/* Eyebrow chip */}
-        <div
-          className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full px-3 sm:px-3.5 py-1.5"
-          style={{
-            background: "rgba(255,255,255,0.08)",
-            border: "1px solid rgba(255,255,255,0.15)",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <span
-            className="h-1.5 w-1.5 rounded-full shrink-0"
-            style={{ background: "#C68B59" }}
-          />
-          <span
-            style={{
-              fontSize: "10px",
-              fontWeight: 600,
-              letterSpacing: "0.10em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.75)",
-            }}
-          >
-            Agentic Development Environment
-          </span>
-        </div>
-
         {/* Heading */}
         <h1
           style={{
-            fontSize: "clamp(2.2rem, 8vw, 5.2rem)",
-            lineHeight: "1.06",
-            letterSpacing: "-0.04em",
-            fontFamily: "var(--font-waldenburg)",
+            fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
+            lineHeight: "1.08",
+            letterSpacing: "-0.035em",
+            fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
             fontWeight: 500,
             color: "#ffffff",
-            textShadow: "0 2px 40px rgba(0,0,0,0.5)",
+            textShadow: "0 2px 40px rgba(0,0,0,0.4)",
             textAlign: "center",
           }}
         >
