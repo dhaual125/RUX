@@ -18,7 +18,7 @@ export function Hero() {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-center animate-video-fade"
         style={{ zIndex: 1 }}
       >
         <source src="/assets/vid.mp4" type="video/mp4" />
@@ -48,6 +48,7 @@ export function Hero() {
       >
         {/* Heading */}
         <h1
+          className="animate-title-fade"
           style={{
             fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
             lineHeight: "1.08",
@@ -80,7 +81,7 @@ export function Hero() {
 
         {/* Subtitle */}
         <p
-          className="mt-4 sm:mt-6 text-pretty mx-auto"
+          className="mt-4 sm:mt-6 text-pretty mx-auto animate-subtitle-fade"
           style={{
             fontSize: "clamp(0.875rem, 2.5vw, 1.05rem)",
             lineHeight: "1.72",
@@ -98,7 +99,7 @@ export function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="mt-7 sm:mt-9 flex flex-row flex-wrap items-center justify-center gap-3">
+        <div className="mt-7 sm:mt-9 flex flex-row flex-wrap items-center justify-center gap-3 animate-ctas-fade">
           <Link
             href="/get-started"
             className="group inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 active:scale-95 hover:bg-white/95"
@@ -142,7 +143,7 @@ export function Hero() {
 
       {/* ── Bottom trusted-by bar ── */}
       <div
-        className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 md:px-16 py-4 flex items-center justify-center gap-4 sm:gap-8 flex-wrap"
+        className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 md:px-16 py-4 flex items-center justify-center gap-4 sm:gap-8 flex-wrap animate-footer-fade"
         style={{ zIndex: 3, borderTop: "1px solid rgba(255,255,255,0.07)" }}
       >
         <span
@@ -172,6 +173,59 @@ export function Hero() {
         ))}
       </div>
 
+      <style>{`
+        .animate-video-fade {
+          opacity: 0;
+          animation: fadeInVideo 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-title-fade {
+          opacity: 0;
+          animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+        }
+        .animate-subtitle-fade {
+          opacity: 0;
+          animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+        }
+        .animate-ctas-fade {
+          opacity: 0;
+          animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+        }
+        .animate-footer-fade {
+          opacity: 0;
+          animation: fadeInSimple 1.5s ease-out 1.6s forwards;
+        }
+
+        @keyframes fadeInVideo {
+          from {
+            opacity: 0;
+            transform: scale(1.03);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInSimple {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </section>
   );
 }

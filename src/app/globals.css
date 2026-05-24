@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "Waldenburg";
   src: url("../fonts/Waldenburg-Regular.woff2") format("woff2");
@@ -212,9 +214,18 @@ select:-webkit-autofill:focus {
   caret-color: var(--page-text) !important;
 }
 
-/* Explicit style overrides for forms to prevent browser default text coloring */
-input, select, textarea {
+/* Explicit style overrides for forms to prevent browser default text coloring and font mismatches */
+input, select, textarea, option {
   color: var(--page-text) !important;
+}
+input, select, textarea, button, option {
+  font-family: inherit !important;
+}
+option {
+  background-color: var(--page-bg) !important;
+}
+label {
+  color: var(--heading-color) !important;
 }
 input::placeholder, textarea::placeholder {
   color: var(--muted-text) !important;

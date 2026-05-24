@@ -65,14 +65,13 @@ export default function GetStartedPage() {
   };
 
   return (
-    <div className="w-full min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-[var(--page-bg)] text-[var(--page-text)]">
+    <div className="w-full min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] bg-[var(--page-bg)] text-[var(--page-text)]">
       {/* Left image — hidden on mobile */}
-      <div className="relative hidden lg:flex items-center justify-center overflow-hidden h-full lg:h-screen bg-[#0a0a0a]">
+      <div className="relative hidden lg:block overflow-hidden h-full bg-[#0a0a0a]">
         <img
           src="/frontimage.png"
           alt="Get Started RUX background visual"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center top" }}
+          className="w-full h-full object-cover object-center animate-fade-in"
         />
       </div>
 
@@ -128,9 +127,10 @@ export default function GetStartedPage() {
             /* Waitlist Form */
             <div className="w-full">
               <h1
-                className="mb-1 text-2xl font-bold tracking-tight text-black dark:text-white"
+                className="mb-1 text-2xl font-bold tracking-tight"
                 style={{
                   fontFamily: "var(--font-waldenburg)",
+                  color: "var(--heading-color)",
                   lineHeight: 1.15,
                 }}
               >
@@ -143,7 +143,7 @@ export default function GetStartedPage() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
                 {/* Full Name */}
                 <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                  <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                     Full name <span className="text-[#e11d48] font-bold">*</span>
                   </label>
                   <input
@@ -162,7 +162,7 @@ export default function GetStartedPage() {
 
                 {/* Email */}
                 <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                  <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                     Email <span className="text-[#e11d48] font-bold">*</span>
                   </label>
                   <input
@@ -181,7 +181,7 @@ export default function GetStartedPage() {
 
                 {/* WhatsApp Number (Split Select + Input) */}
                 <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                  <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                     WhatsApp number <span className="text-[#e11d48] font-bold">*</span>
                   </label>
                   <div

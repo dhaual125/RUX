@@ -34,17 +34,17 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 py-16 sm:grid-cols-4 md:py-20">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
-            <span
-              style={{
-                fontFamily: "var(--font-waldenburg)",
-                fontSize: "1.15rem",
-                fontWeight: 500,
-                letterSpacing: "-0.01em",
-                color: "var(--heading-color)",
-              }}
-            >
-              RUX
-            </span>
+            <Link href="/" className="inline-block transition-opacity hover:opacity-75">
+              <img
+                src="https://host.nineone152.com/RUX.png"
+                alt="RUX Logo"
+                style={{
+                  height: "32px",
+                  width: "auto",
+                  display: "block",
+                }}
+              />
+            </Link>
             <p
               className="mt-4 max-w-[240px] text-[0.875rem] leading-relaxed"
               style={{ color: "var(--muted-text)" }}

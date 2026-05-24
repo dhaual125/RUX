@@ -156,9 +156,9 @@ export function Navbar() {
                 href="/get-started"
                 className="inline-flex h-9 items-center justify-center rounded-full px-4 text-[13px] font-medium transition-all duration-200 active:scale-95"
                 style={{
-                  background: white ? "rgba(255,255,255,0.12)" : "var(--heading-color)",
-                  color: "var(--page-bg)",
-                  border: white ? "1px solid rgba(255,255,255,0.20)" : "1px solid var(--heading-color)",
+                  background: white ? "#ffffff" : "var(--heading-color)",
+                  color: white ? "#000000" : "var(--page-bg)",
+                  border: white ? "1px solid #ffffff" : "1px solid var(--heading-color)",
                 }}
               >
                 Get Started

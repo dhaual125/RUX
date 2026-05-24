@@ -78,14 +78,13 @@ export default function ContactSalesPage() {
   };
 
   return (
-    <div className="w-full min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-[var(--page-bg)] text-[var(--page-text)]">
+    <div className="w-full min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] bg-[var(--page-bg)] text-[var(--page-text)]">
       {/* Left image — hidden on mobile */}
-      <div className="relative hidden lg:flex items-center justify-center overflow-hidden h-full lg:h-screen bg-[#0a0a0a]">
+      <div className="relative hidden lg:block overflow-hidden h-full bg-[#0a0a0a]">
         <img
           src="/frontimage.png"
           alt="Contact Sales RUX background visual"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center top" }}
+          className="w-full h-full object-cover object-center animate-fade-in"
         />
       </div>
 
@@ -141,9 +140,10 @@ export default function ContactSalesPage() {
             /* Contact Sales Form */
             <div className="w-full pr-1">
               <h1
-                className="mb-1 text-2xl font-bold tracking-tight text-black dark:text-white"
+                className="mb-1 text-2xl font-bold tracking-tight"
                 style={{
                   fontFamily: "var(--font-waldenburg)",
+                  color: "var(--heading-color)",
                   lineHeight: 1.15,
                 }}
               >
@@ -157,7 +157,7 @@ export default function ContactSalesPage() {
                 {/* First Name & Last Name (Side-by-Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                   <div className="flex flex-col gap-1">
-                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                    <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                       First name <span className="text-[#e11d48] font-bold">*</span>
                     </label>
                     <input
@@ -175,7 +175,7 @@ export default function ContactSalesPage() {
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                    <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                       Last name <span className="text-[#e11d48] font-bold">*</span>
                     </label>
                     <input
@@ -195,7 +195,7 @@ export default function ContactSalesPage() {
 
                 {/* Work Email */}
                 <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                  <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                     Work email <span className="text-[#e11d48] font-bold">*</span>
                   </label>
                   <input
@@ -214,7 +214,7 @@ export default function ContactSalesPage() {
 
                 {/* Mobile Phone Number */}
                 <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                  <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                     Mobile phone number <span className="text-[#e11d48] font-bold">*</span>
                   </label>
                   <input
@@ -234,7 +234,7 @@ export default function ContactSalesPage() {
                 {/* Job Title & Institute Name (Side-by-Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                   <div className="flex flex-col gap-1">
-                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                    <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                       Job title <span className="text-[#e11d48] font-bold">*</span>
                     </label>
                     <input
@@ -252,7 +252,7 @@ export default function ContactSalesPage() {
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                    <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                       Institute name <span className="text-[#e11d48] font-bold">*</span>
                     </label>
                     <input
@@ -273,7 +273,7 @@ export default function ContactSalesPage() {
                 {/* Institute Type & Number of Students (Side-by-Side Select) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                   <div className="flex flex-col gap-1">
-                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                    <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                       Institute type <span className="text-[#e11d48] font-bold">*</span>
                     </label>
                     <div className="relative">
@@ -303,7 +303,7 @@ export default function ContactSalesPage() {
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-[13px] font-semibold text-black dark:text-white">
+                    <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                       Number of students
                     </label>
                     <div className="relative">
@@ -331,7 +331,7 @@ export default function ContactSalesPage() {
 
                 {/* Requirements & Goals (Textarea) */}
                 <div className="flex flex-col gap-1">
-                  <label className="text-[13px] font-semibold text-black dark:text-white">
+                  <label className="text-[13px] font-semibold text-[var(--heading-color)]">
                     Requirements & goals
                   </label>
                   <textarea
