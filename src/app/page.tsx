@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Hero } from "@/components/sections/Hero";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const categories = ["All", "Platform", "AI Models", "Agents", "Editor", "Security"];
 
@@ -116,9 +115,6 @@ export default function RuxPage() {
                   unifying every model, agent, editor, and security layer you need to ship.
                 </p>
               </div>
-              <div className="mt-1">
-                <ThemeToggle />
-              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -127,8 +123,55 @@ export default function RuxPage() {
         </div>
       </section>
 
+      {/* ── Infinite Logo Ticker Section ── */}
+      <section className="relative py-6 bg-transparent overflow-hidden select-none">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400/60 dark:text-gray-500/60 mb-6">
+            TRUSTED BY TEAMS BUILDING WITH INTENT
+          </p>
+          
+          <div className="relative w-full overflow-hidden flex items-center">
+            {/* Fade gradients on side edges for a premium look */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[var(--page-bg)] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[var(--page-bg)] to-transparent z-10 pointer-events-none" />
+            
+            <div className="animate-marquee flex items-center gap-16 py-2">
+              {[
+                "TantriX", "AWS", "Plaur", "Osmium AI", "HomeGuru", 
+                "NineOne152", "Navchetna Technologies", "Kriya", "Natraj", "Plenora",
+                "TantriX", "AWS", "Plaur", "Osmium AI", "HomeGuru", 
+                "NineOne152", "Navchetna Technologies", "Kriya", "Natraj", "Plenora"
+              ].map((logo, idx) => (
+                <span
+                  key={idx}
+                  className="text-gray-400/50 dark:text-gray-500/40 font-medium tracking-widest text-[14.5px] hover:text-black dark:hover:text-white transition-all duration-300 whitespace-nowrap cursor-default"
+                >
+                  {logo}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section>
+
       {/* ── Features Grid ── */}
       <section
+        id="capabilities"
         className="relative overflow-hidden py-8 md:py-14"
         style={{ background: "var(--page-bg)" }}
       >
@@ -303,7 +346,7 @@ export default function RuxPage() {
                   RUX runs entirely on your machine. Your keys, your models, your data — always.
                 </p>
                 <a
-                  href="#"
+                  href="/get-started"
                   className="inline-flex items-center justify-center rounded-full px-6 text-sm font-semibold transition-colors"
                   style={{
                     height: "2.5rem",

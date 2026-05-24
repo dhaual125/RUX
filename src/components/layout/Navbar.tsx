@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "RUX" },
-  { href: "/about", label: "About" },
+  { href: "https://www.navchetna.tech/about", label: "About", external: true, hideArrow: true },
   { href: "https://osmium.co.in", label: "Osmium AI", external: true },
 ];
 
@@ -57,17 +57,35 @@ export function Navbar() {
           <nav className="hidden h-[64px] grid-cols-[1fr_auto_1fr] items-center px-7 lg:grid">
             {/* Logo */}
             <Link href="/" className="w-max transition-opacity hover:opacity-75">
-              <span
-                className="whitespace-nowrap uppercase transition-colors"
-                style={{
-                  color: white ? "#ffffff" : "var(--heading-color)",
-                  fontSize: "13px",
-                  fontWeight: 700,
-                  letterSpacing: "0.09em",
-                }}
-              >
-                RUX
-              </span>
+              <div style={{ position: "relative", height: "36px", display: "flex", alignItems: "center" }}>
+                {/* White version — visible on dark hero */}
+                <img
+                  src="https://host.nineone152.com/RUX.png"
+                  alt="RUX"
+                  style={{
+                    height: "36px",
+                    width: "auto",
+                    display: "block",
+                    mixBlendMode: "screen",
+                    position: "absolute",
+                    opacity: white ? 1 : 0,
+                    transition: "opacity 0.3s",
+                  }}
+                />
+                {/* Natural version — visible on scrolled navbar */}
+                <img
+                  src="https://host.nineone152.com/RUX.png"
+                  alt=""
+                  aria-hidden
+                  style={{
+                    height: "36px",
+                    width: "auto",
+                    display: "block",
+                    opacity: white ? 0 : 1,
+                    transition: "opacity 0.3s",
+                  }}
+                />
+              </div>
             </Link>
 
             {/* Center links */}
@@ -99,9 +117,11 @@ export function Navbar() {
                     >
                       {inner}
                       {/* external arrow icon */}
-                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.5 }}>
-                        <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                      {!link.hideArrow && (
+                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.5 }}>
+                          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
                     </a>
                   );
                 }
@@ -121,8 +141,8 @@ export function Navbar() {
 
             {/* Right CTAs */}
             <div className="flex items-center justify-end gap-2">
-              <a
-                href="mailto:sales@rux.dev"
+              <Link
+                href="/contact-sales"
                 className="inline-flex h-9 items-center justify-center rounded-full px-4 text-[13px] font-medium transition-all duration-200 active:scale-95"
                 style={{
                   background: "transparent",
@@ -131,9 +151,9 @@ export function Navbar() {
                 }}
               >
                 Talk to Sales
-              </a>
+              </Link>
               <Link
-                href="#get-started"
+                href="/get-started"
                 className="inline-flex h-9 items-center justify-center rounded-full px-4 text-[13px] font-medium transition-all duration-200 active:scale-95"
                 style={{
                   background: white ? "rgba(255,255,255,0.12)" : "var(--heading-color)",
@@ -150,17 +170,33 @@ export function Navbar() {
           <div className="lg:hidden">
             <div className="flex h-[58px] items-center justify-between px-5">
               <Link href="/" onClick={() => setOpen(false)} className="transition-opacity hover:opacity-75">
-                <span
-                  className="whitespace-nowrap uppercase"
-                  style={{
-                    color: white ? "#ffffff" : "var(--heading-color)",
-                    fontSize: "11px",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                  }}
-                >
-                  RUX
-                </span>
+                <div style={{ position: "relative", height: "28px", display: "flex", alignItems: "center" }}>
+                  <img
+                    src="https://host.nineone152.com/RUX.png"
+                    alt="RUX"
+                    style={{
+                      height: "28px",
+                      width: "auto",
+                      display: "block",
+                      mixBlendMode: "screen",
+                      position: "absolute",
+                      opacity: white ? 1 : 0,
+                      transition: "opacity 0.3s",
+                    }}
+                  />
+                  <img
+                    src="https://host.nineone152.com/RUX.png"
+                    alt=""
+                    aria-hidden
+                    style={{
+                      height: "28px",
+                      width: "auto",
+                      display: "block",
+                      opacity: white ? 0 : 1,
+                      transition: "opacity 0.3s",
+                    }}
+                  />
+                </div>
               </Link>
 
               <button
@@ -203,9 +239,11 @@ export function Navbar() {
                         style={{ color: "var(--muted-text)" }}
                       >
                         {link.label}
-                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.4 }}>
-                          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        {!link.hideArrow && (
+                          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.4 }}>
+                            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
                       </a>
                     ) : (
                       <Link
@@ -219,16 +257,16 @@ export function Navbar() {
                       </Link>
                     )
                   )}
-                  <a
-                    href="mailto:sales@rux.dev"
+                  <Link
+                    href="/contact-sales"
                     onClick={() => setOpen(false)}
                     className="mt-2 flex h-11 items-center justify-center rounded-full text-[14px] font-medium"
                     style={{ border: "1px solid var(--border-default)", color: "var(--muted-text)" }}
                   >
                     Talk to Sales
-                  </a>
+                  </Link>
                   <Link
-                    href="#get-started"
+                    href="/get-started"
                     onClick={() => setOpen(false)}
                     className="mt-2 flex h-11 items-center justify-center rounded-full text-[14px] font-medium"
                     style={{ background: "var(--heading-color)", color: "var(--page-bg)" }}

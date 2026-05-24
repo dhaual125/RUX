@@ -28,7 +28,7 @@ export function Hero() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.10) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.55) 100%)",
           zIndex: 2,
         }}
       />
@@ -36,15 +36,15 @@ export function Hero() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.55) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.65) 100%)",
           zIndex: 2,
         }}
       />
 
-      {/* ── Content — left aligned ── */}
+      {/* ── Content — centered ── */}
       <div
-        className="relative w-full px-6 sm:px-10 md:px-16 lg:px-24 flex flex-col items-start"
-        style={{ zIndex: 3, maxWidth: "680px" }}
+        className="relative w-full px-6 sm:px-10 md:px-16 lg:px-24 flex flex-col items-center text-center mx-auto"
+        style={{ zIndex: 3, maxWidth: "840px" }}
       >
         {/* Eyebrow chip */}
         <div
@@ -75,14 +75,14 @@ export function Hero() {
         {/* Heading */}
         <h1
           style={{
-            fontSize: "clamp(2.6rem, 7vw, 5rem)",
-            lineHeight: "1.04",
+            fontSize: "clamp(2.6rem, 7vw, 5.2rem)",
+            lineHeight: "1.06",
             letterSpacing: "-0.04em",
             fontFamily: "var(--font-waldenburg)",
             fontWeight: 500,
             color: "#ffffff",
             textShadow: "0 2px 40px rgba(0,0,0,0.5)",
-            textAlign: "left",
+            textAlign: "center",
           }}
         >
           Every model.
@@ -94,7 +94,10 @@ export function Hero() {
               fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
               fontWeight: 400,
-              color: "rgba(255,255,255,0.80)",
+              background: "linear-gradient(90deg, #C68B59 0%, #e8b07a 50%, #f5d0a0 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
           >
             One engine.
@@ -103,37 +106,38 @@ export function Hero() {
 
         {/* Subtitle */}
         <p
-          className="mt-6 text-pretty"
+          className="mt-6 text-pretty mx-auto"
           style={{
             fontSize: "clamp(0.95rem, 1.2vw, 1.05rem)",
             lineHeight: "1.72",
-            color: "rgba(255,255,255,0.58)",
+            color: "rgba(255,255,255,0.68)",
             fontWeight: 400,
-            maxWidth: "420px",
-            textAlign: "left",
+            maxWidth: "520px",
+            textAlign: "center",
           }}
         >
           RUX is a sovereign, AI-native dev environment — local-first,{" "}
-          <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>
+          <span style={{ color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
             model-agnostic,
           </span>{" "}
           and built on a single Rust core.
         </p>
 
         {/* CTAs */}
-        <div className="mt-9 flex flex-wrap items-center gap-3">
+        <div className="mt-9 flex flex-row flex-wrap items-center justify-center gap-4">
           <Link
-            href="#get-started"
-            className="group inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 active:scale-95"
+            href="/get-started"
+            className="group inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 active:scale-95 hover:bg-white/95"
             style={{
-              height: "48px",
+              height: "46px",
               padding: "0 24px",
               fontSize: "13.5px",
               fontWeight: 600,
               background: "#ffffff",
               color: "#000000",
               letterSpacing: "-0.01em",
-              borderRadius: "8px",
+              borderRadius: "999px",
+              boxShadow: "0 4px 14px rgba(255,255,255,0.15)",
             }}
           >
             Get Started
@@ -141,31 +145,30 @@ export function Hero() {
               <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
-          <a
-            href="mailto:sales@rux.dev"
-            className="inline-flex items-center justify-center whitespace-nowrap transition-all duration-300 active:scale-95 hover:bg-white/10"
+          <Link
+            href="/contact-sales"
+            className="group inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 active:scale-95 hover:bg-white/[0.08]"
             style={{
-              height: "48px",
+              height: "46px",
               padding: "0 24px",
               fontSize: "13.5px",
-              fontWeight: 500,
-              background: "transparent",
-              color: "rgba(255,255,255,0.88)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
+              fontWeight: 600,
+              background: "rgba(255,255,255,0.06)",
+              color: "#ffffff",
+              border: "1px solid rgba(255,255,255,0.22)",
               letterSpacing: "-0.01em",
-              borderRadius: "8px",
+              borderRadius: "999px",
+              backdropFilter: "blur(4px)",
             }}
           >
             Talk to Sales
-          </a>
+          </Link>
         </div>
       </div>
 
       {/* ── Bottom trusted-by bar ── */}
       <div
-        className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 md:px-16 lg:px-24 py-5 flex items-center gap-8 flex-wrap"
+        className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 md:px-16 lg:px-24 py-5 flex items-center justify-center gap-8 flex-wrap"
         style={{ zIndex: 3, borderTop: "1px solid rgba(255,255,255,0.07)" }}
       >
         <span

@@ -9,14 +9,9 @@ const productLinks = [
   { href: "https://navchetna.tech", label: "Navchetna", external: true },
 ];
 
-const resourceLinks = [
-  { href: "#", label: "Documentation" },
-  { href: "#", label: "Changelog" },
-  { href: "#", label: "Roadmap" },
-];
+const resourceLinks: never[] = [];
 
 const companyLinks = [
-  { href: "/about", label: "About" },
   { href: "mailto:sales@rux.dev", label: "Contact Sales", external: true },
   { href: "/privacy", label: "Privacy Policy" },
 ];
@@ -91,27 +86,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
-          <div>
-            <p className="mb-5 text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--subtle-text)" }}>
-              Resources
-            </p>
-            <ul className="space-y-3.5">
-              {resourceLinks.map((l) => (
-                <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="text-[0.875rem] font-medium transition-colors hover:opacity-100"
-                    style={{ color: "var(--muted-text)" }}
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
+{/* Company */}
           <div>
             <p className="mb-5 text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--subtle-text)" }}>
               Company
