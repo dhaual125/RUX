@@ -152,7 +152,7 @@ export default function GetStartedPage() {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="eg. Rahul Sharma"
-                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.fullName ? "#e11d48" : undefined,
                     }}
@@ -171,7 +171,7 @@ export default function GetStartedPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="eg. rahul@gmail.com"
-                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.email ? "#e11d48" : undefined,
                     }}
@@ -195,7 +195,7 @@ export default function GetStartedPage() {
                         name="countryCode"
                         value={formData.countryCode}
                         onChange={handleChange}
-                        className="text-[14px] bg-transparent border-none outline-none appearance-none cursor-pointer pr-4 text-black dark:text-white"
+                        className="text-[14px] bg-[var(--page-bg)] border-none outline-none appearance-none cursor-pointer pr-4 text-black dark:text-white"
                       >
                         {countryCodes.map((item) => (
                           <option key={item.code} value={item.code} className="bg-white dark:bg-[#121212] text-black dark:text-white">
@@ -216,7 +216,7 @@ export default function GetStartedPage() {
                       value={formData.whatsappNumber}
                       onChange={handleChange}
                       placeholder="9876543210"
-                      className="flex-1 bg-transparent border-none outline-none py-0 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 text-black dark:text-white"
+                      className="flex-1 bg-transparent border-none outline-none py-0 px-0 text-[14px] text-black dark:text-white"
                     />
                   </div>
                   {errors.whatsappNumber && <span className="text-[10px] text-[#e11d48] font-medium mt-1">{errors.whatsappNumber}</span>}
@@ -227,10 +227,8 @@ export default function GetStartedPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-2.5 rounded-full text-[14px] font-semibold inline-flex items-center gap-2.5 transition-all duration-200 active:scale-[0.98] cursor-pointer hover:bg-black/90 dark:hover:bg-white/90"
+                    className="px-8 py-2.5 rounded-full text-[14px] font-semibold inline-flex items-center gap-2.5 transition-all duration-200 active:scale-[0.98] cursor-pointer bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 disabled:bg-gray-200 disabled:text-gray-400 dark:disabled:bg-zinc-800 dark:disabled:text-zinc-500"
                     style={{
-                      background: isSubmitting ? "#e5e7eb" : "black",
-                      color: "white",
                       cursor: isSubmitting ? "not-allowed" : "pointer",
                     }}
                   >

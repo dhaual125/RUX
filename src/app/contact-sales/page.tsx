@@ -166,7 +166,7 @@ export default function ContactSalesPage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="eg. John"
-                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.firstName ? "#e11d48" : undefined,
                       }}
@@ -184,7 +184,7 @@ export default function ContactSalesPage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="eg. Doe"
-                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.lastName ? "#e11d48" : undefined,
                       }}
@@ -204,7 +204,7 @@ export default function ContactSalesPage() {
                     value={formData.workEmail}
                     onChange={handleChange}
                     placeholder="eg. john.doe@institute.edu"
-                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.workEmail ? "#e11d48" : undefined,
                     }}
@@ -223,7 +223,7 @@ export default function ContactSalesPage() {
                     value={formData.phoneNumber}
                     onChange={handleChange}
                     placeholder="eg. 9129139145"
-                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                     style={{
                       borderColor: errors.phoneNumber ? "#e11d48" : undefined,
                     }}
@@ -243,7 +243,7 @@ export default function ContactSalesPage() {
                       value={formData.jobTitle}
                       onChange={handleChange}
                       placeholder="eg. Principal"
-                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.jobTitle ? "#e11d48" : undefined,
                       }}
@@ -261,7 +261,7 @@ export default function ContactSalesPage() {
                       value={formData.instituteName}
                       onChange={handleChange}
                       placeholder="eg. Delhi Public School"
-                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
+                      className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 text-black dark:text-white"
                       style={{
                         borderColor: errors.instituteName ? "#e11d48" : undefined,
                       }}
@@ -281,7 +281,7 @@ export default function ContactSalesPage() {
                         name="instituteType"
                         value={formData.instituteType}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                        className="w-full bg-[var(--page-bg)] border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
                         style={{
                           borderColor: errors.instituteType ? "#e11d48" : undefined,
                         }}
@@ -311,7 +311,7 @@ export default function ContactSalesPage() {
                         name="studentCount"
                         value={formData.studentCount}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
+                        className="w-full bg-[var(--page-bg)] border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 pr-8 pl-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 appearance-none cursor-pointer text-black dark:text-white"
                       >
                         <option value="" className="text-gray-400 dark:text-zinc-500 bg-white dark:bg-[#121212]">Please select</option>
                         {studentRanges.map((opt) => (
@@ -340,7 +340,7 @@ export default function ContactSalesPage() {
                     onChange={handleChange}
                     placeholder="Tell us about your needs..."
                     rows={2}
-                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] placeholder-gray-400 dark:placeholder-zinc-500 outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 resize-none text-black dark:text-white"
+                    className="w-full bg-transparent border-0 border-b border-gray-300 dark:border-zinc-800 rounded-none py-1.5 px-0 text-[14px] outline-none focus:outline-none focus:ring-0 focus:border-black dark:focus:border-white transition-colors duration-200 resize-none text-black dark:text-white"
                   />
                 </div>
 
@@ -349,10 +349,8 @@ export default function ContactSalesPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-2.5 rounded-full text-[14px] font-semibold inline-flex items-center gap-2.5 transition-all duration-200 active:scale-[0.98] cursor-pointer hover:bg-black/90 dark:hover:bg-white/90"
+                    className="px-8 py-2.5 rounded-full text-[14px] font-semibold inline-flex items-center gap-2.5 transition-all duration-200 active:scale-[0.98] cursor-pointer bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 disabled:bg-gray-200 disabled:text-gray-400 dark:disabled:bg-zinc-800 dark:disabled:text-zinc-500"
                     style={{
-                      background: isSubmitting ? "#e5e7eb" : "black",
-                      color: "white",
                       cursor: isSubmitting ? "not-allowed" : "pointer",
                     }}
                   >
