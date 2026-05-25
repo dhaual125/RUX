@@ -114,7 +114,7 @@ export default function ContactSalesPage() {
               <h1
                 className="text-2xl font-semibold tracking-tight"
                 style={{
-                  fontFamily: "var(--font-waldenburg)",
+                  fontFamily: "var(--font-heading)",
                   color: "var(--heading-color)",
                   lineHeight: 1.15,
                 }}
@@ -142,7 +142,7 @@ export default function ContactSalesPage() {
               <h1
                 className="mb-1 text-2xl font-bold tracking-tight"
                 style={{
-                  fontFamily: "var(--font-waldenburg)",
+                  fontFamily: "var(--font-heading)",
                   color: "var(--heading-color)",
                   lineHeight: 1.15,
                 }}
@@ -381,3 +381,4 @@ export default function ContactSalesPage() {
     </div>
   );
 }
+

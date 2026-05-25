@@ -56,7 +56,7 @@ export function Hero() {
               lineHeight: 1.08,
               marginBottom: "1.5rem",
               color: "#ffffff",
-              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+              fontFamily: "var(--font-heading)",
               textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
               textAlign: "center",
             }}
@@ -85,7 +85,7 @@ export function Hero() {
               lineHeight: 1.6,
               maxWidth: "42rem",
               margin: "0 auto 2.5rem auto",
-              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+              fontFamily: "var(--font-heading)",
               textShadow: "0 2px 8px rgba(0,0,0,0.15)",
               textAlign: "center",
             }}
@@ -121,7 +121,7 @@ export function Hero() {
                 fontSize: "clamp(12px, 2.5vw, 13.5px)",
                 fontWeight: 600,
                 textDecoration: "none",
-                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+                fontFamily: "var(--font-heading)",
                 whiteSpace: "nowrap",
                 boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
               }}
@@ -149,7 +149,7 @@ export function Hero() {
                 fontSize: "clamp(12px, 2.5vw, 13.5px)",
                 fontWeight: 600,
                 textDecoration: "none",
-                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+                fontFamily: "var(--font-heading)",
                 whiteSpace: "nowrap",
                 boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
               }}
@@ -248,3 +248,4 @@ export function Hero() {
     </section>
   );
 }
+

@@ -1,5 +1,9 @@
 import { Hero } from "@/components/sections/Hero";
 import { Capabilities } from "@/components/sections/Capabilities";
+import { TerminalStrip } from "@/components/sections/TerminalStrip";
+import { Pillars } from "@/components/sections/Pillars";
+import { FeaturesBento } from "@/components/sections/FeaturesBento";
+import { Architecture } from "@/components/sections/Architecture";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -9,59 +13,20 @@ export default function RuxPage() {
       {/* ── Hero ── */}
       <Hero />
 
-      {/* ── Trusted-by ticker ── */}
-      <section className="relative py-6 bg-transparent overflow-hidden select-none">
-        <div className="max-w-6xl lg:max-w-[90vw] mx-auto px-4 text-center">
-          <p
-            className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-6"
-            style={{ color: "var(--subtle-text)" }}
-          >
-            TRUSTED BY TEAMS BUILDING WITH INTENT
-          </p>
+      {/* ── Terminal Strip ── */}
+      <TerminalStrip />
 
-          <div className="relative w-full overflow-hidden flex items-center">
-            {/* Edge fades */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[var(--page-bg)] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[var(--page-bg)] to-transparent z-10 pointer-events-none" />
-
-            <div className="animate-marquee flex items-center gap-16 py-2">
-              {[
-                "TantriX", "AWS", "Plaur", "Osmium AI", "HomeGuru",
-                "NineOne152", "Navchetna Technologies", "Kriya", "Natraj", "Plenora",
-                "TantriX", "AWS", "Plaur", "Osmium AI", "HomeGuru",
-                "NineOne152", "Navchetna Technologies", "Kriya", "Natraj", "Plenora",
-              ].map((logo, idx) => (
-                <span
-                  key={idx}
-                  className="font-medium tracking-widest whitespace-nowrap cursor-default transition-all duration-300"
-                  style={{
-                    fontSize: "14.5px",
-                    color: "var(--subtle-text)",
-                  }}
-                >
-                  {logo}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <style>{`
-          @keyframes marquee {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 28s linear infinite;
-          }
-          .animate-marquee:hover { animation-play-state: paused; }
-        `}</style>
-      </section>
+      {/* ── Core Pillars ── */}
+      <Pillars />
 
       {/* ── Capabilities (redesigned) ── */}
       <Capabilities />
+
+      {/* ── Features Bento ── */}
+      <FeaturesBento />
+
+      {/* ── Architecture ── */}
+      <Architecture />
 
       {/* ── CTA ── */}
       <section
@@ -88,7 +53,7 @@ export default function RuxPage() {
                 <h2
                   className="mb-4 text-balance"
                   style={{
-                    fontFamily: "var(--font-waldenburg)",
+                    fontFamily: "var(--font-heading)",
                     fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
                     fontWeight: 400,
                     lineHeight: 1.1,
@@ -140,3 +105,4 @@ export default function RuxPage() {
     </>
   );
 }
+

@@ -458,7 +458,7 @@ export function Capabilities() {
                     <h3
                       className="transition-colors duration-300"
                       style={{
-                        fontFamily: "var(--font-waldenburg)",
+                        fontFamily: "var(--font-heading)",
                         fontSize: "1.1rem",
                         fontWeight: active === index ? 500 : 400,
                         letterSpacing: "-0.02em",
@@ -537,7 +537,7 @@ export function Capabilities() {
                   <h3
                     className="text-lg font-medium tracking-tight"
                     style={{
-                      fontFamily: "var(--font-waldenburg)",
+                      fontFamily: "var(--font-heading)",
                       color: "var(--heading-color)",
                     }}
                   >
@@ -590,7 +590,7 @@ export function Capabilities() {
                             <h3
                               className="mb-1.5"
                               style={{
-                                fontFamily: "var(--font-waldenburg)",
+                                fontFamily: "var(--font-heading)",
                                 fontSize: "0.96rem",
                                 fontWeight: 500,
                                 letterSpacing: "-0.015em",
@@ -657,3 +657,4 @@ export function Capabilities() {
     </section>
   );
 }
+

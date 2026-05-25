@@ -68,7 +68,7 @@ export default function PrivacyPage() {
               <h1
                 className="text-balance"
                 style={{
-                  fontFamily: "var(--font-waldenburg)",
+                  fontFamily: "var(--font-heading)",
                   fontSize: "clamp(2.5rem, 5vw, 4rem)",
                   fontWeight: 400,
                   letterSpacing: "-0.03em",
@@ -106,7 +106,7 @@ export default function PrivacyPage() {
                   <h2
                     className="mb-4 text-2xl"
                     style={{
-                      fontFamily: "var(--font-waldenburg)",
+                      fontFamily: "var(--font-heading)",
                       letterSpacing: "-0.02em",
                       fontWeight: 500,
                       color: "var(--heading-color)",
@@ -146,3 +146,4 @@ export default function PrivacyPage() {
     </main>
   );
 }
+
