@@ -62,15 +62,7 @@ export default function RuxPage() {
                   }}
                 >
                   Ready to build with{" "}
-                  <span
-                    style={{
-                      fontFamily: "'Instrument Serif', serif",
-                      fontStyle: "italic",
-                      background: "linear-gradient(135deg, #d4845a 0%, #8b6bc7 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
+                  <span className="serif-italic">
                     sovereign AI?
                   </span>
                 </h2>

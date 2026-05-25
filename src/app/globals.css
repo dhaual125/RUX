@@ -104,8 +104,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
   font-weight: 400;
-  color: inherit;
   padding-right: 0.05em;
+  background: linear-gradient(135deg, #7d4835 0%, #e29a5f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .grid-overlay {

@@ -77,15 +77,7 @@ export default function PrivacyPage() {
                 }}
               >
                 Privacy{" "}
-                <span
-                  style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontStyle: "italic",
-                    background: "linear-gradient(135deg, #C68B59 0%, #545B8C 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
+                <span className="serif-italic">
                   Policy.
                 </span>
               </h1>

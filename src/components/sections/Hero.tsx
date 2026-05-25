@@ -64,12 +64,10 @@ export function Hero() {
             Every model. Every agent.
             <br />
             <span
+              className="serif-italic"
               style={{
-                fontFamily: "'Instrument Serif', serif",
-                fontStyle: "italic",
                 fontWeight: 400,
                 letterSpacing: "-0.02em",
-                color: "rgba(255, 255, 255, 0.9)",
               }}
             >
               One engine.

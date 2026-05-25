@@ -312,26 +312,145 @@ const categories: Category[] = [
 
 /* ─── Component ──────────────────────────────────────────────────────────── */
 
+function CategoryCards({
+  cat,
+  catIdx,
+}: {
+  cat: Category;
+  catIdx: number;
+}) {
+  return (
+    <div id={`cat-${cat.id}`} className="scroll-mt-4">
+      <div className="mb-6 flex items-center gap-3">
+        <span
+          className="text-[11px] font-bold uppercase tracking-widest"
+          style={{ color: "#C68B59" }}
+        >
+          {String(catIdx + 1).padStart(2, "0")}
+        </span>
+        <h3
+          className="text-lg font-medium tracking-tight"
+          style={{
+            fontFamily: "var(--font-heading)",
+            color: "var(--heading-color)",
+          }}
+        >
+          {cat.label}
+        </h3>
+        <div
+          className="h-px flex-grow border-t border-dotted ml-3"
+          style={{ borderColor: "var(--border-subtle)", opacity: 0.6 }}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {cat.features.map((feature, i) => {
+          const FeatureIcon = feature.icon;
+          return (
+            <ScrollReveal key={`${cat.id}-${feature.name}`} delay={i * 35}>
+              <div
+                className="group flex flex-col gap-4 p-5 h-full rounded-sm transition-all duration-200 hover:shadow-sm"
+                style={{
+                  background: "var(--card-bg)",
+                  border: "1px solid var(--border-subtle)",
+                }}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div
+                    className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl"
+                    style={{
+                      border: "1px solid var(--border-subtle)",
+                      background:
+                        "linear-gradient(135deg, rgba(198,139,89,0.10) 0%, rgba(84,91,140,0.10) 100%)",
+                    }}
+                  >
+                    <FeatureIcon
+                      weight="duotone"
+                      className="size-[17px]"
+                      style={{ color: "#C68B59" }}
+                    />
+                  </div>
+                  <span
+                    className="text-[9px] font-semibold uppercase tracking-[0.14em] pt-1 text-right shrink-0"
+                    style={{ color: "var(--subtle-text)" }}
+                  >
+                    {feature.tag}
+                  </span>
+                </div>
+
+                <div>
+                  <h3
+                    className="mb-1.5"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontSize: "0.96rem",
+                      fontWeight: 500,
+                      letterSpacing: "-0.015em",
+                      color: "var(--heading-color)",
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    {feature.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "0.82rem",
+                      lineHeight: 1.65,
+                      color: "var(--muted-text)",
+                    }}
+                  >
+                    {feature.desc}
+                  </p>
+                </div>
+
+                <div
+                  className="mt-auto pt-3 border-t"
+                  style={{ borderColor: "var(--border-subtle)" }}
+                >
+                  <span
+                    className="text-[9px] font-bold uppercase tracking-widest"
+                    style={{ color: "var(--subtle-text)" }}
+                  >
+                    {cat.label}
+                  </span>
+                </div>
+              </div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function Capabilities() {
   const [active, setActive] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isScrollingRef = useRef(false);
 
-  // Scroll Spy: Update active category based on scroll position of cards inside the right container
   useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Desktop only: scroll-spy updates active timeline from card scroll
+  useEffect(() => {
+    if (!isDesktop) return;
+
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    // Use IntersectionObserver with the right-side container as the root
     const observerOptions = {
       root: container,
-      rootMargin: "-20% 0px -55% 0px", // Trigger when the section occupies the active middle portion
+      rootMargin: "-20% 0px -55% 0px",
       threshold: 0,
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      // If we are currently running a smooth scroll animation from a button click,
-      // temporarily ignore observer changes to prevent jumping active states
       if (isScrollingRef.current) return;
 
       entries.forEach((entry) => {
@@ -353,31 +472,34 @@ export function Capabilities() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isDesktop]);
 
-  // Smooth scroll inside the right container
   const handleNavClick = (index: number, id: string) => {
     setActive(index);
+
+    if (!isDesktop) return;
+
     const container = scrollContainerRef.current;
     const element = document.getElementById(`cat-${id}`);
     if (container && element) {
       isScrollingRef.current = true;
-      
+
       const containerTop = container.getBoundingClientRect().top;
       const elementTop = element.getBoundingClientRect().top;
-      const scrollTarget = container.scrollTop + (elementTop - containerTop) - 4; // subtle padding offset
+      const scrollTarget = container.scrollTop + (elementTop - containerTop) - 4;
 
       container.scrollTo({
         top: scrollTarget,
         behavior: "smooth",
       });
 
-      // Clear the scrolling lock after the smooth scroll finishes (roughly 800ms)
       setTimeout(() => {
         isScrollingRef.current = false;
       }, 800);
     }
   };
+
+
 
   return (
     <section
@@ -468,7 +590,7 @@ export function Capabilities() {
                             : "var(--subtle-text)",
                       }}
                     >
-                      0{index + 1}. {cat.label}
+                      {String(index + 1).padStart(2, "0")}. {cat.label}
                     </h3>
 
                     {/* Expandable description */}
@@ -515,121 +637,29 @@ export function Capabilities() {
             </div>
           </div>
 
-          {/* ── Right: Scrollable Feature Cards Grid ── */}
+          {/* ── Right: Feature cards (one category on mobile, all on desktop) ── */}
           <div
             ref={scrollContainerRef}
-            className="lg:h-[580px] lg:overflow-y-auto custom-scroll flex flex-col gap-14 lg:pr-6"
+            className="lg:h-[580px] lg:overflow-y-auto custom-scroll flex flex-col gap-14 lg:pr-6 min-h-0"
           >
-            {categories.map((cat, catIdx) => (
-              <div
-                key={cat.id}
-                id={`cat-${cat.id}`}
-                className="scroll-mt-4"
-              >
-                {/* Category Header within Right Grid */}
-                <div className="mb-6 flex items-center gap-3">
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-widest"
-                    style={{ color: "#C68B59" }}
-                  >
-                    0{catIdx + 1}
-                  </span>
-                  <h3
-                    className="text-lg font-medium tracking-tight"
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      color: "var(--heading-color)",
-                    }}
-                  >
-                    {cat.label}
-                  </h3>
+            <div className="flex flex-col gap-14 capabilities-cards-panel">
+              {categories.map((cat, catIdx) => {
+                const isActive = catIdx === active;
+                return (
                   <div
-                    className="h-px flex-grow border-t border-dotted ml-3"
-                    style={{ borderColor: "var(--border-subtle)", opacity: 0.6 }}
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {cat.features.map((feature, i) => {
-                    const FeatureIcon = feature.icon;
-                    return (
-                      <ScrollReveal key={`${cat.id}-${feature.name}`} delay={i * 35}>
-                        <div
-                          className="group flex flex-col gap-4 p-5 h-full rounded-sm transition-all duration-200 hover:shadow-sm"
-                          style={{
-                            background: "var(--card-bg)",
-                            border: "1px solid var(--border-subtle)",
-                          }}
-                        >
-                          {/* Icon + Tag row */}
-                          <div className="flex items-start justify-between gap-3">
-                            <div
-                              className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl"
-                              style={{
-                                border: "1px solid var(--border-subtle)",
-                                background:
-                                  "linear-gradient(135deg, rgba(198,139,89,0.10) 0%, rgba(84,91,140,0.10) 100%)",
-                              }}
-                            >
-                              <FeatureIcon
-                                weight="duotone"
-                                className="size-[17px]"
-                                style={{ color: "#C68B59" }}
-                              />
-                            </div>
-                            <span
-                              className="text-[9px] font-semibold uppercase tracking-[0.14em] pt-1 text-right shrink-0"
-                              style={{ color: "var(--subtle-text)" }}
-                            >
-                              {feature.tag}
-                            </span>
-                          </div>
-
-                          {/* Name + Description */}
-                          <div>
-                            <h3
-                              className="mb-1.5"
-                              style={{
-                                fontFamily: "var(--font-heading)",
-                                fontSize: "0.96rem",
-                                fontWeight: 500,
-                                letterSpacing: "-0.015em",
-                                color: "var(--heading-color)",
-                                lineHeight: 1.25,
-                              }}
-                            >
-                              {feature.name}
-                            </h3>
-                            <p
-                              style={{
-                                fontSize: "0.82rem",
-                                lineHeight: 1.65,
-                                color: "var(--muted-text)",
-                              }}
-                            >
-                              {feature.desc}
-                            </p>
-                          </div>
-
-                          {/* Bottom category label */}
-                          <div
-                            className="mt-auto pt-3 border-t"
-                            style={{ borderColor: "var(--border-subtle)" }}
-                          >
-                            <span
-                              className="text-[9px] font-bold uppercase tracking-widest"
-                              style={{ color: "var(--subtle-text)" }}
-                            >
-                              {cat.label}
-                            </span>
-                          </div>
-                        </div>
-                      </ScrollReveal>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+                    key={cat.id}
+                    className={`${isActive ? "block" : "hidden lg:block"} ${
+                      isActive ? "capabilities-card-active" : ""
+                    }`}
+                  >
+                    <CategoryCards
+                      cat={cat}
+                      catIdx={catIdx}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
         </div>
@@ -652,6 +682,18 @@ export function Capabilities() {
         }
         .custom-scroll::-webkit-scrollbar-thumb:hover {
           background-color: rgba(198, 139, 89, 0.5);
+        }
+        @media (max-width: 1023px) {
+          .capabilities-cards-panel {
+            animation: capabilitiesFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .capabilities-card-active {
+            animation: capabilitiesFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
+        @keyframes capabilitiesFadeIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>
