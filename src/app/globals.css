@@ -40,6 +40,10 @@
   /* Brand accents from the hero/video vibe */
   --color-brand: #C68B59;
   --color-brand-dark: #7d4835;
+  --card-elevated: #141414;
+  --feature-text: rgba(255, 255, 255, 0.44);
+  --code-keyword: #ff7b72;
+  --code-string: #a5d6ff;
 }
 
 body {
@@ -133,6 +137,285 @@ h1, h2, h3, h4, h5, h6 {
   background-image: radial-gradient(circle, rgba(255,255,255,0.10) 0.85px, transparent 0.85px);
   background-size: 24px 100%;
   background-repeat: repeat-x;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--subtle-text);
+}
+
+/* LM Lens–style feature cards */
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 1024px) {
+  .formats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .formats-grid { grid-template-columns: 1fr; }
+}
+
+.lm-format-card {
+  background: var(--card-elevated);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition: background 0.35s ease, border-color 0.35s ease;
+  height: 100%;
+}
+.lm-format-card:hover {
+  border-color: var(--border-default);
+}
+
+.lm-format-illo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem 0.75rem;
+  height: clamp(120px, 28vw, 190px);
+  color: var(--heading-color);
+}
+.lm-format-illo--compact {
+  height: clamp(100px, 22vw, 150px);
+}
+.lm-format-illo--arch {
+  height: clamp(140px, 20vw, 200px);
+}
+
+.lm-illo-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.lm-format-body {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.lm-icon-box {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--page-bg);
+  border: 1px solid var(--border-strong);
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+}
+
+.lm-card-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--subtle-text);
+  margin-bottom: 0.5rem;
+}
+
+.lm-card-title {
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
+}
+
+.lm-card-desc {
+  font-size: 0.8rem;
+  color: var(--feature-text);
+  line-height: 1.65;
+  margin: 0;
+}
+.lm-card-desc--wide {
+  max-width: 52ch;
+  margin-bottom: 1.25rem;
+}
+
+.lm-bento-wide {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  overflow: hidden;
+}
+.lm-bento-wide-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+.lm-bento-wide-illo {
+  flex: 0 1 220px;
+  min-width: 180px;
+  color: var(--heading-color);
+  height: clamp(140px, 25vw, 180px);
+}
+.lm-bento-wide-content {
+  flex: 1 1 280px;
+}
+.lm-bento-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--heading-color);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.lm-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lm-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted-text);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  letter-spacing: 0.02em;
+}
+.lm-pill--filled {
+  background: var(--heading-color);
+  color: var(--page-bg);
+  border-color: var(--heading-color);
+}
+
+.lm-bento-code {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+.lm-bento-code-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.lm-code-block {
+  background: var(--page-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 0;
+  font-size: 12px;
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  line-height: 1.6;
+  color: var(--page-text);
+}
+.lm-code-kw { color: var(--code-keyword); }
+
+/* Architecture stack */
+.arch-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .arch-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.arch-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--muted-text);
+  line-height: 1.68;
+  font-size: 1rem;
+}
+
+.arch-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arch-layer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+@media (min-width: 640px) {
+  .arch-layer-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+.arch-layer-card--highlight {
+  background: rgba(198, 139, 89, 0.06);
+  border-color: rgba(198, 139, 89, 0.3);
+}
+.arch-layer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.arch-layer-icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+.arch-layer-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--heading-color);
+  margin-bottom: 0.35rem;
+}
+.arch-layer-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 9px;
+  font-family: ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  color: var(--muted-text);
+}
+.arch-layer-tag--highlight {
+  border-color: rgba(198, 139, 89, 0.3);
+  color: var(--color-brand);
+  background: rgba(198, 139, 89, 0.08);
+}
+.arch-layer-desc {
+  font-size: 10px;
+  font-family: ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--subtle-text);
+}
+@media (min-width: 640px) {
+  .arch-layer-desc { text-align: right; }
+}
+
+.arch-illo-card {
+  border: 1px solid var(--border-subtle);
 }
 
 .scroll-fade {
