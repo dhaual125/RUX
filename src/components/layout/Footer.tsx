@@ -25,7 +25,7 @@ export function Footer() {
     <footer className="relative overflow-hidden" style={{ background: "var(--page-bg)" }}>
       {/* warm glow */}
       <div
-        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 h-[32rem] w-[140%] opacity-[0.85] mix-blend-multiply"
+        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 h-[32rem] w-[140%] opacity-40 mix-blend-multiply dark:opacity-[0.85]"
         style={{ background: "radial-gradient(ellipse at bottom, rgba(245,190,145,0.35) 0%, rgba(185,165,230,0.15) 35%, transparent 70%)" }}
       />
 

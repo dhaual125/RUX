@@ -130,30 +130,6 @@ export function Hero() {
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
             </Link>
-            <Link
-              href="/contact-sales"
-              className="group transition-all duration-200 hover:bg-white/[0.15] active:scale-95"
-              style={{
-                display: "inline-flex",
-                height: "48px",
-                alignItems: "center",
-                gap: "8px",
-                background: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                color: "#ffffff",
-                padding: "0 clamp(16px, 3vw, 24px)",
-                borderRadius: "999px",
-                fontSize: "clamp(12px, 2.5vw, 13.5px)",
-                fontWeight: 600,
-                textDecoration: "none",
-                fontFamily: "var(--font-heading)",
-                whiteSpace: "nowrap",
-                boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
-              }}
-            >
-              Talk to Sales
-            </Link>
           </div>
         </div>
       </div>

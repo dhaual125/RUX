@@ -1,38 +1,59 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 
 type Theme = "light" | "dark" | "system";
 
 const ThemeContext = createContext<{
   theme: Theme;
   setTheme: (t: Theme) => void;
-}>({ theme: "system", setTheme: () => {} });
+}>({ theme: "dark", setTheme: () => {} });
+
+function resolveIsDark(theme: Theme): boolean {
+  if (typeof window === "undefined") return theme !== "light";
+  if (theme === "dark") return true;
+  if (theme === "light") return false;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+function applyThemeToDocument(theme: Theme) {
+  const root = document.documentElement;
+  const isDark = resolveIsDark(theme);
+  root.classList.toggle("dark", isDark);
+  root.style.colorScheme = isDark ? "dark" : "light";
+}
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark");
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const stored = (localStorage.getItem("rux-theme") as Theme) || "dark";
-    setThemeState(stored);
+    const stored = localStorage.getItem("rux-theme") as Theme | null;
+    const initial: Theme =
+      stored === "light" || stored === "dark" || stored === "system" ? stored : "dark";
+    setThemeState(initial);
+    applyThemeToDocument(initial);
+    setReady(true);
   }, []);
 
   useEffect(() => {
-    const root = document.documentElement;
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const apply = () => {
-      const isDark = theme === "dark" || (theme === "system" && mq.matches);
-      root.classList.toggle("dark", isDark);
-    };
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
-  }, [theme]);
+    if (!ready) return;
 
-  const setTheme = (t: Theme) => {
+    applyThemeToDocument(theme);
+
+    if (theme !== "system") return;
+
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = () => applyThemeToDocument("system");
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [theme, ready]);
+
+  const setTheme = useCallback((t: Theme) => {
     localStorage.setItem("rux-theme", t);
     setThemeState(t);
-  };
+    applyThemeToDocument(t);
+  }, []);
 
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 }

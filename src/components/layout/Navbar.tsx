@@ -142,17 +142,6 @@ export function Navbar() {
             {/* Right CTAs */}
             <div className="flex items-center justify-end gap-2">
               <Link
-                href="/contact-sales"
-                className="inline-flex h-9 items-center justify-center rounded-full px-4 text-[13px] font-medium transition-all duration-200 active:scale-95"
-                style={{
-                  background: "transparent",
-                  color: white ? "rgba(255,255,255,0.72)" : "var(--muted-text)",
-                  border: white ? "1px solid rgba(255,255,255,0.20)" : "1px solid var(--border-default)",
-                }}
-              >
-                Talk to Sales
-              </Link>
-              <Link
                 href="/get-started"
                 className="inline-flex h-9 items-center justify-center rounded-full px-4 text-[13px] font-medium transition-all duration-200 active:scale-95"
                 style={{
@@ -257,14 +246,6 @@ export function Navbar() {
                       </Link>
                     )
                   )}
-                  <Link
-                    href="/contact-sales"
-                    onClick={() => setOpen(false)}
-                    className="mt-2 flex h-11 items-center justify-center rounded-full text-[14px] font-medium"
-                    style={{ border: "1px solid var(--border-default)", color: "var(--muted-text)" }}
-                  >
-                    Talk to Sales
-                  </Link>
                   <Link
                     href="/get-started"
                     onClick={() => setOpen(false)}
