@@ -43,101 +43,120 @@ export function Hero() {
 
       {/* ── Content — centered ── */}
       <div
-        className="relative w-full px-5 sm:px-10 md:px-16 lg:px-24 flex flex-col items-center text-center mx-auto"
-        style={{ zIndex: 3, maxWidth: "840px" }}
+        className="relative w-full flex flex-col items-center text-center mx-auto animate-title-fade"
+        style={{ zIndex: 3, position: "relative" }}
       >
-        {/* Heading */}
-        <h1
-          className="animate-title-fade"
-          style={{
-            fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
-            lineHeight: "1.08",
-            letterSpacing: "-0.035em",
-            fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-            fontWeight: 500,
-            color: "#ffffff",
-            textShadow: "0 2px 40px rgba(0,0,0,0.4)",
-            textAlign: "center",
-          }}
-        >
-          Every model.
-          <br />
-          Every agent.
-          <br />
-          <span
+        <div style={{ maxWidth: "54rem", padding: "0 1rem" }}>
+          {/* Heading */}
+          <h1
             style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontStyle: "italic",
-              fontWeight: 400,
-              background: "linear-gradient(90deg, #C68B59 0%, #e8b07a 50%, #f5d0a0 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            One engine.
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p
-          className="mt-4 sm:mt-6 text-pretty mx-auto animate-subtitle-fade"
-          style={{
-            fontSize: "clamp(0.875rem, 2.5vw, 1.05rem)",
-            lineHeight: "1.72",
-            color: "rgba(255,255,255,0.68)",
-            fontWeight: 400,
-            maxWidth: "520px",
-            textAlign: "center",
-          }}
-        >
-          RUX is a sovereign, AI-native dev environment — local-first,{" "}
-          <span style={{ color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
-            model-agnostic,
-          </span>{" "}
-          and built on a single Rust core.
-        </p>
-
-        {/* CTAs */}
-        <div className="mt-7 sm:mt-9 flex flex-row flex-wrap items-center justify-center gap-3 animate-ctas-fade">
-          <Link
-            href="/get-started"
-            className="group inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 active:scale-95 hover:bg-white/95"
-            style={{
-              height: "44px",
-              padding: "0 20px",
-              fontSize: "13px",
-              fontWeight: 600,
-              background: "#ffffff",
-              color: "#000000",
-              letterSpacing: "-0.01em",
-              borderRadius: "999px",
-              boxShadow: "0 4px 14px rgba(255,255,255,0.15)",
-            }}
-          >
-            Get Started
-            <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
-              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-          <Link
-            href="/contact-sales"
-            className="group inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 active:scale-95 hover:bg-white/[0.08]"
-            style={{
-              height: "44px",
-              padding: "0 20px",
-              fontSize: "13px",
-              fontWeight: 600,
-              background: "rgba(255,255,255,0.06)",
+              fontSize: "clamp(2.5rem, 5vw + 1rem, 60px)",
+              fontWeight: 500,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.08,
+              marginBottom: "1.5rem",
               color: "#ffffff",
-              border: "1px solid rgba(255,255,255,0.22)",
-              letterSpacing: "-0.01em",
-              borderRadius: "999px",
-              backdropFilter: "blur(4px)",
+              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+              textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
+              textAlign: "center",
             }}
           >
-            Talk to Sales
-          </Link>
+            Every model. Every agent.
+            <br />
+            <span
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontStyle: "italic",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                color: "rgba(255, 255, 255, 0.9)",
+              }}
+            >
+              One engine.
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            style={{
+              color: "rgba(255,255,255,0.65)",
+              fontSize: "clamp(0.75rem, 2.2vw, 1.05rem)",
+              fontWeight: 400,
+              lineHeight: 1.6,
+              maxWidth: "42rem",
+              margin: "0 auto 2.5rem auto",
+              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+              textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+              textAlign: "center",
+            }}
+          >
+            RUX is a sovereign, AI-native dev environment — local-first,{" "}
+            <span style={{ color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
+              model-agnostic,
+            </span>{" "}
+            and built on a single Rust core.
+          </p>
+
+          {/* CTAs */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              justifyContent: "center",
+              gap: "clamp(0.5rem, 2vw, 1rem)",
+            }}
+          >
+            <Link
+              href="/get-started"
+              className="group transition-opacity duration-200 hover:opacity-90 active:scale-95"
+              style={{
+                display: "inline-flex",
+                height: "48px",
+                alignItems: "center",
+                gap: "8px",
+                background: "#ffffff",
+                color: "#000000",
+                padding: "0 clamp(16px, 3vw, 24px)",
+                borderRadius: "999px",
+                fontSize: "clamp(12px, 2.5vw, 13.5px)",
+                fontWeight: 600,
+                textDecoration: "none",
+                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+                whiteSpace: "nowrap",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
+              }}
+            >
+              Get Started
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </Link>
+            <Link
+              href="/contact-sales"
+              className="group transition-all duration-200 hover:bg-white/[0.15] active:scale-95"
+              style={{
+                display: "inline-flex",
+                height: "48px",
+                alignItems: "center",
+                gap: "8px",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                color: "#ffffff",
+                padding: "0 clamp(16px, 3vw, 24px)",
+                borderRadius: "999px",
+                fontSize: "clamp(12px, 2.5vw, 13.5px)",
+                fontWeight: 600,
+                textDecoration: "none",
+                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+                whiteSpace: "nowrap",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
+              }}
+            >
+              Talk to Sales
+            </Link>
+          </div>
         </div>
       </div>
 
