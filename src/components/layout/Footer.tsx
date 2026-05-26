@@ -1,26 +1,75 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useTheme } from "@/components/ui/ThemeProvider";
 
 const productLinks = [
-  { href: "/", label: "RUX" },
-  { href: "https://osmium.co.in", label: "Osmium AI", external: true },
-  { href: "https://navchetna.tech", label: "Navchetna", external: true },
+  { href: "https://navchetna.tech/products", label: "All Products", external: true },
+  { href: "https://www.osmium.co.in/", label: "Osmium AI", external: true },
+  { href: "https://natraj.navchetna.tech/", label: "Natraj", external: true },
+  { href: "https://aegis.navchetna.tech/", label: "Aegis Auth", external: true },
+  { href: "https://kriya.navchetna.tech/", label: "Kriya", external: true },
+  { href: "https://lmlens.navchetna.tech/", label: "LM Lens", external: false },
 ];
 
-const resourceLinks: never[] = [];
+const serviceLinks = [
+  { href: "https://navchetna.tech/services", label: "Product Development", external: true },
+  { href: "https://navchetna.tech/services", label: "AI & Automation", external: true },
+  { href: "https://navchetna.tech/services", label: "Design & Branding", external: true },
+  { href: "https://navchetna.tech/services", label: "Strategy & Management", external: true },
+];
 
 const companyLinks = [
-  { href: "mailto:sales@rux.dev", label: "Contact Sales", external: true },
-  { href: "/privacy", label: "Privacy Policy" },
+  { href: "https://navchetna.tech/about", label: "About Us", external: true },
+  { href: "https://navchetna.tech/career", label: "Careers", external: true },
+  { href: "https://navchetna.tech/news", label: "News", external: true },
+  { href: "https://navchetna.tech/contact", label: "Contact", external: true },
 ];
 
-const legalLinks = [
-  { href: "/privacy", label: "Privacy Policy" },
-];
+function FooterLink({ href, label, external }: { href: string; label: string; external: boolean }) {
+  const style: React.CSSProperties = {
+    fontSize: "13.5px",
+    color: "var(--footer-link)",
+    textDecoration: "none",
+    fontWeight: 500,
+    transition: "color 0.2s",
+  };
+  if (external) {
+    return (
+      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={style} className="footer-link-hover">
+        {label}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} style={style} className="footer-link-hover">
+      {label}
+    </Link>
+  );
+}
+
+function FooterCol({ heading, links }: { heading: string; links: typeof productLinks }) {
+  return (
+    <div style={{ flex: "1 1 130px" }}>
+      <p style={{
+        fontSize: "10px", fontWeight: 600, textTransform: "uppercase",
+        letterSpacing: "0.1em", color: "var(--footer-eyebrow)", marginBottom: "1.25rem",
+      }}>
+        {heading}
+      </p>
+      <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.875rem" }}>
+        {links.map((l) => (
+          <li key={l.label}>
+            <FooterLink {...l} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function Footer() {
+  const { theme, setTheme } = useTheme();
   return (
     <footer className="relative overflow-hidden" style={{ background: "var(--page-bg)" }}>
       {/* warm glow */}
@@ -29,127 +78,173 @@ export function Footer() {
         style={{ background: "radial-gradient(ellipse at bottom, rgba(245,190,145,0.35) 0%, rgba(185,165,230,0.15) 35%, transparent 70%)" }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[80rem] px-5 sm:px-8">
-        {/* Main grid */}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12 py-16 sm:grid-cols-4 md:py-20">
+      <div className="relative z-10" style={{ margin: "0 auto", maxWidth: "80rem", padding: "0 1.25rem" }}>
+
+        {/* ── Main row ── */}
+        <div className="footer-main-row">
+
           {/* Brand */}
-          <div className="col-span-2 sm:col-span-1">
+          <div className="footer-brand">
             <Link href="/" className="inline-block transition-opacity hover:opacity-75">
-              <img
-                src="https://host.nineone152.com/RUX.png"
-                alt="RUX Logo"
-                style={{
-                  height: "32px",
-                  width: "auto",
-                  display: "block",
-                }}
-              />
+              <span style={{ fontSize: "1.1rem", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--heading-color)" }}>
+                Navchetna Technologies
+              </span>
             </Link>
-            <p
-              className="mt-4 max-w-[240px] text-[0.875rem] leading-relaxed"
-              style={{ color: "var(--muted-text)" }}
-            >
-              Sovereign AI-native development.<br />
-              Every model. Every agent. One engine.
+            <p style={{
+              marginTop: "1rem", fontSize: "13px",
+              color: "var(--muted-text)", lineHeight: 1.7, maxWidth: "220px",
+            }}>
+              Based in India, For India,<br />
+              By Students of India
             </p>
           </div>
 
-          {/* Products */}
-          <div>
-            <p className="mb-5 text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--subtle-text)" }}>
-              Products
-            </p>
-            <ul className="space-y-3.5">
-              {productLinks.map((l) => (
-                <li key={l.label}>
-                  {l.external ? (
-                    <a
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[0.875rem] font-medium transition-colors hover:opacity-100"
-                      style={{ color: "var(--muted-text)" }}
-                    >
-                      {l.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={l.href}
-                      className="text-[0.875rem] font-medium transition-colors hover:opacity-100"
-                      style={{ color: "var(--muted-text)" }}
-                    >
-                      {l.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-{/* Company */}
-          <div>
-            <p className="mb-5 text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--subtle-text)" }}>
-              Company
-            </p>
-            <ul className="space-y-3.5">
-              {companyLinks.map((l) => (
-                <li key={l.label}>
-                  {l.external ? (
-                    <a
-                      href={l.href}
-                      className="text-[0.875rem] font-medium transition-colors hover:opacity-100"
-                      style={{ color: "var(--muted-text)" }}
-                    >
-                      {l.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={l.href}
-                      className="text-[0.875rem] font-medium transition-colors hover:opacity-100"
-                      style={{ color: "var(--muted-text)" }}
-                    >
-                      {l.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+          {/* Columns */}
+          <div className="footer-cols-row">
+            <FooterCol heading="Products" links={productLinks} />
+            <FooterCol heading="Services" links={serviceLinks} />
+            <FooterCol heading="Company" links={companyLinks} />
           </div>
         </div>
 
-        {/* Centered System Status */}
-        <div className="flex justify-center mb-6">
-          <Link
-            href="#"
-            className="text-[10px] font-semibold uppercase tracking-[0.14em] transition-colors duration-200 hover:text-[var(--heading-color)]"
-            style={{ color: "var(--muted-text)" }}
-          >
-            System Status
-          </Link>
+        {/* ── Badge bar ── */}
+        <div style={{
+          borderTop: "1px solid var(--footer-divider)",
+          padding: "1.5rem 0",
+          display: "flex",
+          alignItems: "center",
+          gap: "1.5rem",
+          flexWrap: "wrap",
+        }}>
+          <img src="/nvidia-inception.svg" alt="NVIDIA Inception" style={{ height: "48px", width: "auto" }} />
+          <img src="/dpiit.png" alt="DPIIT Recognized" className="dpiit-logo" style={{ height: "48px", width: "auto" }} />
         </div>
 
-        {/* Bottom bar */}
+        {/* ── Bottom bar ── */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 text-[10px] tracking-wider"
-          style={{ borderTop: "1px solid var(--border-subtle)" }}
+          className="footer-bottom-bar"
+          style={{
+            borderTop: "1px solid var(--footer-divider)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1.5rem",
+            padding: "2rem 0",
+            fontSize: "12px",
+            color: "var(--footer-legal)",
+            fontWeight: 500,
+          }}
         >
-          {/* Left: copyright */}
-          <span style={{ color: "var(--muted-text)" }}>
-            © 2026 Navchetna Technologies. All rights reserved.
-          </span>
-
-          {/* Right: company + theme toggle */}
-          <div className="flex flex-wrap items-center gap-6">
-            <span
-              className="font-semibold"
-              style={{ color: "var(--muted-text)" }}
-            >
-              NINELLMS SOLUTIONS LLP
-            </span>
-            <ThemeToggle />
+          <span style={{ alignSelf: "flex-start" }}>© 2026 Navchetna Technologies. All rights reserved.</span>
+          <div className="footer-bottom-inner">
+            <div className="footer-social-links">
+              <a href="https://www.linkedin.com/company/Navchetna-Technology/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--footer-legal)", textDecoration: "none", transition: "color 0.2s" }} className="footer-link-hover">LinkedIn</a>
+              <a href="https://www.instagram.com/navchetna.tech/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--footer-legal)", textDecoration: "none", transition: "color 0.2s" }} className="footer-link-hover">Instagram</a>
+              <span className="footer-divider-dot" style={{ width: "1px", height: "12px", background: "var(--footer-divider)", display: "inline-block" }} />
+              <a href="https://www.navchetna.tech/privacy" style={{ color: "var(--footer-legal)", textDecoration: "none", transition: "color 0.2s" }} className="footer-link-hover">Privacy Policy</a>
+              <a href="https://www.navchetna.tech/terms" target="_blank" rel="noopener noreferrer" style={{ color: "var(--footer-legal)", textDecoration: "none", transition: "color 0.2s" }} className="footer-link-hover">Terms of Service</a>
+            </div>
+            <div className="theme-toggle-group">
+              <button className={`theme-btn${theme === "system" ? " active" : ""}`} onClick={() => setTheme("system")}>System</button>
+              <button className={`theme-btn${theme === "light" ? " active" : ""}`} onClick={() => setTheme("light")}>Light</button>
+              <button className={`theme-btn${theme === "dark" ? " active" : ""}`} onClick={() => setTheme("dark")}>Dark</button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* LM Lens footer layout classes */}
+      <style>{`
+        .footer-main-row {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          padding: 3rem 0 4rem;
+          flex-wrap: wrap;
+        }
+        .footer-cols-row {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+          flex: 1;
+          flex-wrap: wrap;
+        }
+        .footer-brand { flex: 0 0 auto; }
+        .footer-bottom-bar {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+        .footer-bottom-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem;
+          width: 100%;
+        }
+        .footer-social-links {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 1rem;
+        }
+        .footer-link-hover:hover { color: var(--black) !important; }
+        .dpiit-logo { filter: none; }
+        .dark .dpiit-logo { filter: invert(1) brightness(1.8); }
+        .theme-toggle-group {
+          display: inline-flex;
+          align-items: center;
+          gap: 2px;
+          background: var(--card-bg);
+          border: 1px solid var(--border-default);
+          border-radius: 999px;
+          padding: 3px;
+          transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .theme-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          height: 28px;
+          padding: 0 11px;
+          border-radius: 999px;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          border: none;
+          cursor: pointer;
+          background: transparent;
+          color: var(--page-text);
+          opacity: 0.45;
+          transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+        }
+        .theme-btn:hover { opacity: 0.75; }
+        .theme-btn.active {
+          background: var(--page-bg);
+          opacity: 1;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.12), 0 0 0 1px var(--border-default);
+        }
+        .dark .theme-btn.active {
+          box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+        }
+        @media (min-width: 640px) {
+          .footer-main-row { padding: 4rem 0 5rem; }
+          .footer-cols-row { flex-direction: row; gap: 3rem; }
+          .footer-bottom-bar { flex-direction: row !important; align-items: center !important; }
+          .footer-bottom-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+          .footer-social-links { gap: 1.5rem; }
+        }
+        @media (min-width: 1024px) {
+          .footer-main-row { flex-direction: row; gap: 4rem; }
+          .footer-cols-row { gap: 4rem; }
+          .footer-brand { flex: 0 0 220px; }
+        }
+        @media (max-width: 480px) {
+          .footer-social-links { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+          .footer-divider-dot { display: none !important; }
+        }
+      `}</style>
     </footer>
   );
 }

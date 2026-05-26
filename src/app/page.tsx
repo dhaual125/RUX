@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { TrustedBy } from "@/components/sections/TrustedBy";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { TerminalStrip } from "@/components/sections/TerminalStrip";
 import { Pillars } from "@/components/sections/Pillars";
@@ -15,6 +16,9 @@ export default function RuxPage() {
 
       {/* ── Terminal Strip ── */}
       <TerminalStrip />
+
+      {/* ── Trusted By ── */}
+      <TrustedBy />
 
       {/* ── Core Pillars ── */}
       <Pillars />

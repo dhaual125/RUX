@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "RUX — The Agentic Development Environment",
   description:
     "RUX is a sovereign, AI-native development environment. Every model, every tool, every agent — unified in one Rust-powered engine.",
+  icons: {
+    icon: "https://host.nineone152.com/RUX.png",
+    shortcut: "https://host.nineone152.com/RUX.png",
+    apple: "https://host.nineone152.com/RUX.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
